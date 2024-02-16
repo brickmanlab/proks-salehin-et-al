@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: reports
+  render:
+    - README.md
+    - notebooks/*
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    minimal: true
+    code-copy: true
+
+number-sections: true
+
+website:
+  title: proks-salehin-et-al-2023
+  sidebar:
+    style: "docked"
+    search: true
+    contents: 
+      - README.md
+      - section: Reports
+        contents: notebooks/*
+    tools:
+      - icon: twitter
+        href: https://twitter.com/LabBrickman
+      - icon: github
+        href: https://github.com/brickmanlab

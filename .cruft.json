@@ -1,0 +1,19 @@
+{
+  "template": "https://github.com/brickmanlab/ngs-template",
+  "commit": "fe77aeda9b0528d21cc899fff8196babdeb97194",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project": "proks-ai-et-al-2023",
+      "_not_rendered": "{{ cookiecutter.project.lower().replace(' ', '_') }}",
+      "author": "Martin Proks",
+      "date": "20230623",
+      "_extensions": [
+        "jinja2_time.TimeExtension"
+      ],
+      "description": "Pre-implanation AI models",
+      "_template": "https://github.com/brickmanlab/ngs-template"
+    }
+  },
+  "directory": "project"
+}

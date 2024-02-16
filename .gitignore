@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+
+data/
+figures/
+notebooks/deprecated
+notebooks/ray
+notebooks/.pybiomart.sqlite
+notebooks/test.ipynb
+pipeline/737K-august-2016.txt.gz
+results/
+scripts/*.bak.py
+scripts/third-party
