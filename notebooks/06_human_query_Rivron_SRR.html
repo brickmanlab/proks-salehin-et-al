@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.302">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Naz Salehin">
+<meta name="dcterms.date" content="2024-12-01">
+
+<title>proks-salehin-et-al-2023 - Rivron blastoids cleaning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/00_figures_common.html">Reports</a></li><li class="breadcrumb-item"><a href="../notebooks/06_human_query_Rivron_SRR.html">Rivron blastoids cleaning</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">proks-salehin-et-al-2023</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://twitter.com/LabBrickman" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/brickmanlab" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">proks-salehin-et-al</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Reports</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_common.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures (common)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human-invitro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [mouse]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_human_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - human analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_mouse_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - mouse analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_human_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Human CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_mouse_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 - CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_human_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Re-annotation and classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier_accuracy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier accuracy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_human_query_Rivron_SRR.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Rivron blastoids cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_mouse_query.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 - mouse query</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/08_shap_explainers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SHAP explainers for SCANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/09_classification_explanation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 - Classification explanation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/10_mouse_beyond_celltypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_human_query_Smith.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Austin Smith paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_xgboost_vs_scanvi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 - XGBoost vs scANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/12_upload_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload AI models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rivron-dataset-srr-filtering" id="toc-rivron-dataset-srr-filtering" class="nav-link active" data-scroll-target="#rivron-dataset-srr-filtering"><span class="header-section-number">1</span> Rivron dataset SRR filtering</a></li>
+  <li><a href="#fetch-ngs" id="toc-fetch-ngs" class="nav-link" data-scroll-target="#fetch-ngs"><span class="header-section-number">2</span> fetch-ngs</a></li>
+  <li><a href="#rivron-dataset-preprocessing" id="toc-rivron-dataset-preprocessing" class="nav-link" data-scroll-target="#rivron-dataset-preprocessing"><span class="header-section-number">3</span> Rivron dataset preprocessing</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Rivron blastoids cleaning</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Naz Salehin </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 1, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scvi</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scanpy <span class="im">as</span> sc</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scanpy.external <span class="im">as</span> sce</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scFates <span class="im">as</span> scf</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba.core.errors <span class="im">import</span> NumbaDeprecationWarning</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span>NumbaDeprecationWarning)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">UserWarning</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/projects/dan1/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/scvi/_settings.py:63: UserWarning: Since v1.0.0, scvi-tools no longer uses a random seed by default. Run `scvi.settings.seed = 0` to reproduce results from previous versions.
+  self.seed = seed
+/projects/dan1/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/scvi/_settings.py:70: UserWarning: Setting `dl_pin_memory_gpu_training` is deprecated in v1.0 and will be removed in v1.1. Please pass in `pin_memory` to the data loaders instead.
+  self.dl_pin_memory_gpu_training = (</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sc.set_figure_params(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.print_figure_kwargs<span class="op">=</span>{<span class="st">'facecolor'</span> : <span class="st">"w"</span>}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format<span class="op">=</span><span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="rivron-dataset-srr-filtering" class="level2" data-number="1">
+<h2 data-number="1" data-anchor-id="rivron-dataset-srr-filtering"><span class="header-section-number">1</span> Rivron dataset SRR filtering</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>kagawa_samplesheet <span class="op">=</span> pd.read_csv(<span class="st">'../data/external/kagawa_samplesheet.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>kagawa_exclude <span class="op">=</span> pd.read_csv(<span class="st">'../data/external/kagawa_exclude.txt'</span>, header<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>kagawa_include <span class="op">=</span> pd.read_csv(<span class="st">'../data/external/kagawa_include.txt'</span>, header<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>new_kagawa_samplesheet <span class="op">=</span> kagawa_samplesheet.loc[kagawa_samplesheet[<span class="st">'sample'</span>].isin(kagawa_include[<span class="dv">0</span>])].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>new_kagawa_samplesheet.to_csv(<span class="st">'../data/external/kagawa_samplesheet_filtered.csv'</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                              index<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                             quoting<span class="op">=</span>csv.QUOTE_NONNUMERIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fetch-ngs" class="level2" data-number="2">
+<h2 data-number="2" data-anchor-id="fetch-ngs"><span class="header-section-number">2</span> fetch-ngs</h2>
+<pre><code>~/Brickman/helper-scripts/nf-core_tower.sh Kagawa_2022 nextflow run brickmanlab/scrnaseq \
+    -r feature/smartseq \
+    -c /projects/dan1/data/Brickman/projects/proks-salehin-et-al-2023/pipeline/smartseq.human.config \
+    --input /scratch/Brickman/pipelines/Kagawa_2022/results/samplesheet/samplesheet_filtered.csv</code></pre>
+</section>
+<section id="rivron-dataset-preprocessing" class="level2" data-number="3">
+<h2 data-number="3" data-anchor-id="rivron-dataset-preprocessing"><span class="header-section-number">3</span> Rivron dataset preprocessing</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>adata_rivron <span class="op">=</span> sc.read(<span class="st">'../data/external/aligned/human/rivron_2022_reprocessed.h5ad'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>adata_rivron</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>AnnData object with n_obs × n_vars = 2673 × 62754
+    obs: 'sample', 'fastq_1', 'fastq_2', 'run_accession', 'experiment_accession', 'sample_accession', 'secondary_sample_accession', 'study_accession', 'secondary_study_accession', 'submission_accession', 'run_alias', 'experiment_alias', 'sample_alias', 'study_alias', 'library_layout', 'library_selection', 'library_source', 'library_strategy', 'instrument_model', 'instrument_platform', 'scientific_name', 'sample_title', 'experiment_title', 'study_title', 'sample_description', 'fastq_md5', 'fastq_bytes', 'fastq_ftp', 'fastq_galaxy', 'fastq_aspera'
+    var: 'gene_symbol'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gtf <span class="op">=</span> pd.read_table(<span class="st">"../data/external/human/Homo_sapiens.GRCh38.110.gene_length.tsv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>gene_lengths <span class="op">=</span> gtf[[<span class="st">'median'</span>]].copy()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>gene_lengths.columns <span class="op">=</span> [<span class="st">'length'</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize_smartseq(adata: sc.AnnData, gene_len: pd.DataFrame) <span class="op">-&gt;</span> sc.AnnData:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"SMART-SEQ: Normalization"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    common_genes <span class="op">=</span> adata.var_names.intersection(gene_len.index)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"SMART-SEQ: Common genes </span><span class="sc">{</span>common_genes<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    lengths <span class="op">=</span> gene_len.loc[common_genes, <span class="st">"length"</span>].values</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    normalized <span class="op">=</span> sc.AnnData(adata[:, common_genes].X, obs<span class="op">=</span>adata.obs, dtype<span class="op">=</span>np.float32)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    normalized.var_names <span class="op">=</span> common_genes</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    normalized.X <span class="op">=</span> normalized.X <span class="op">/</span> lengths <span class="op">*</span> np.median(lengths)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    normalized.X <span class="op">=</span> np.rint(normalized.X)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> normalized</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>normalize_smartseq(adata_rivron, gene_lengths)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>SMART-SEQ: Normalization
+SMART-SEQ: Common genes 62663</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>AnnData object with n_obs × n_vars = 2673 × 62663
+    obs: 'sample', 'fastq_1', 'fastq_2', 'run_accession', 'experiment_accession', 'sample_accession', 'secondary_sample_accession', 'study_accession', 'secondary_study_accession', 'submission_accession', 'run_alias', 'experiment_alias', 'sample_alias', 'study_alias', 'library_layout', 'library_selection', 'library_source', 'library_strategy', 'instrument_model', 'instrument_platform', 'scientific_name', 'sample_title', 'experiment_title', 'study_title', 'sample_description', 'fastq_md5', 'fastq_bytes', 'fastq_ftp', 'fastq_galaxy', 'fastq_aspera'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>metadata_rivron <span class="op">=</span> adata_rivron.obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean <span class="op">=</span> metadata_rivron.loc[:,[<span class="st">'sample'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean[<span class="st">'sample_title'</span>] <span class="op">=</span> metadata_rivron.sample_title.<span class="bu">str</span>.extract(<span class="vs">r'^(.*)-'</span>, expand <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean.sample_title.unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>array(['primed H9', 'blastoid 96h TROP2 pl', 'naive H9', 'okae bts5',
+       'blastoid 24h', 'blastoid 60h TROP2 pl', 'blastoid 60h TROP2 min',
+       'blastoid 96h DN', 'blastoid 96h PDGFRa pl',
+       'blastoid 60h PDGFRa pl'], dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean <span class="op">=</span> metadata_rivron_clean.loc[metadata_rivron_clean.sample_title.isin([<span class="st">'blastoid 96h TROP2 pl'</span>, <span class="st">'naive H9'</span>, <span class="st">'blastoid 24h'</span>, <span class="st">'blastoid 60h TROP2 pl'</span>, <span class="st">'blastoid 60h TROP2 min'</span>, <span class="st">'blastoid 96h DN'</span>, <span class="st">'blastoid 96h PDGFRa pl'</span>, <span class="st">'blastoid 60h PDGFRa pl'</span>])].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean[<span class="st">'batch'</span>] <span class="op">=</span> <span class="st">'Rivron'</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean[<span class="st">'time'</span>] <span class="op">=</span> metadata_rivron_clean[<span class="st">'sample_title'</span>]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean[<span class="st">'flow'</span>] <span class="op">=</span> metadata_rivron_clean[<span class="st">'sample_title'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>time_replace_dict <span class="op">=</span> {</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'naive H9'</span>: <span class="st">'0h'</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 24h'</span>: <span class="st">'24h'</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 60h TROP2 pl'</span>: <span class="st">'60h'</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 60h TROP2 min'</span>: <span class="st">'60h'</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 60h PDGFRa pl'</span>: <span class="st">'60h'</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 96h DN'</span>: <span class="st">'96h'</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 96h PDGFRa pl'</span>: <span class="st">'96h'</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 96h TROP2 pl'</span>: <span class="st">'96h'</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>flow_replace_dict <span class="op">=</span> {</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'naive H9'</span>: <span class="st">'naive'</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 24h'</span>: <span class="st">'na'</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 60h TROP2 pl'</span>: <span class="st">'TROP2+'</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 60h TROP2 min'</span>: <span class="st">'TROP2-'</span>,</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 60h PDGFRa pl'</span>: <span class="st">'PDGFRA+'</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 96h DN'</span>: <span class="st">'Double-neg'</span>,</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 96h PDGFRa pl'</span>: <span class="st">'PDGFRA+'</span>,</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'blastoid 96h TROP2 pl'</span>: <span class="st">'TROP2+'</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>metadata_rivron_clean <span class="op">=</span> metadata_rivron_clean.replace({<span class="st">'time'</span>: time_replace_dict, <span class="st">'flow'</span>: flow_replace_dict})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>adata_rivron <span class="op">=</span> adata_rivron[metadata_rivron_clean.index].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>adata_rivron.obs <span class="op">=</span> metadata_rivron_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>adata_rivron</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>AnnData object with n_obs × n_vars = 2421 × 62754
+    obs: 'sample', 'sample_title', 'batch', 'time', 'flow'
+    var: 'gene_symbol'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>adata_rivron.var[<span class="st">'mt'</span>] <span class="op">=</span> adata_rivron.var.gene_symbol.<span class="bu">str</span>.startswith(<span class="st">'MT-'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sc.pp.calculate_qc_metrics(adata_rivron, qc_vars<span class="op">=</span>[<span class="st">'mt'</span>], percent_top<span class="op">=</span><span class="va">None</span>, log1p<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sns.violinplot(y<span class="op">=</span>adata_rivron.obs[<span class="st">'pct_counts_mt'</span>], orient<span class="op">=</span><span class="st">'v'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>&lt;Axes: ylabel='pct_counts_mt'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="06_human_query_Rivron_SRR_files/figure-html/cell-25-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>adata_rivron.obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sample</th>
+<th data-quarto-table-cell-role="th">sample_title</th>
+<th data-quarto-table-cell-role="th">batch</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">flow</th>
+<th data-quarto-table-cell-role="th">n_genes_by_counts</th>
+<th data-quarto-table-cell-role="th">total_counts</th>
+<th data-quarto-table-cell-role="th">total_counts_mt</th>
+<th data-quarto-table-cell-role="th">pct_counts_mt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX11129000_SRX11129000</td>
+<td>SRX11129000</td>
+<td>blastoid 96h TROP2 pl</td>
+<td>Rivron</td>
+<td>96h</td>
+<td>TROP2+</td>
+<td>2897</td>
+<td>1081299.0</td>
+<td>450085.0</td>
+<td>41.624470</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX11128994_SRX11128994</td>
+<td>SRX11128994</td>
+<td>blastoid 96h TROP2 pl</td>
+<td>Rivron</td>
+<td>96h</td>
+<td>TROP2+</td>
+<td>6437</td>
+<td>2058883.0</td>
+<td>172783.0</td>
+<td>8.392075</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX11129132_SRX11129132</td>
+<td>SRX11129132</td>
+<td>naive H9</td>
+<td>Rivron</td>
+<td>0h</td>
+<td>naive</td>
+<td>6808</td>
+<td>2237799.0</td>
+<td>217539.0</td>
+<td>9.721114</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX11129146_SRX11129146</td>
+<td>SRX11129146</td>
+<td>naive H9</td>
+<td>Rivron</td>
+<td>0h</td>
+<td>naive</td>
+<td>7966</td>
+<td>1798534.0</td>
+<td>115297.0</td>
+<td>6.410610</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX11129013_SRX11129013</td>
+<td>SRX11129013</td>
+<td>blastoid 96h TROP2 pl</td>
+<td>Rivron</td>
+<td>96h</td>
+<td>TROP2+</td>
+<td>6160</td>
+<td>1677046.0</td>
+<td>143402.0</td>
+<td>8.550869</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX11131981_SRX11131981</td>
+<td>SRX11131981</td>
+<td>blastoid 60h TROP2 min</td>
+<td>Rivron</td>
+<td>60h</td>
+<td>TROP2-</td>
+<td>43</td>
+<td>4086.0</td>
+<td>0.0</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX11131985_SRX11131985</td>
+<td>SRX11131985</td>
+<td>blastoid 60h TROP2 min</td>
+<td>Rivron</td>
+<td>60h</td>
+<td>TROP2-</td>
+<td>5215</td>
+<td>837410.0</td>
+<td>196307.0</td>
+<td>23.442162</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX11131982_SRX11131982</td>
+<td>SRX11131982</td>
+<td>blastoid 60h TROP2 min</td>
+<td>Rivron</td>
+<td>60h</td>
+<td>TROP2-</td>
+<td>8915</td>
+<td>1567157.0</td>
+<td>90066.0</td>
+<td>5.747095</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX11131984_SRX11131984</td>
+<td>SRX11131984</td>
+<td>blastoid 60h TROP2 min</td>
+<td>Rivron</td>
+<td>60h</td>
+<td>TROP2-</td>
+<td>5978</td>
+<td>1709532.0</td>
+<td>0.0</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX11131980_SRX11131980</td>
+<td>SRX11131980</td>
+<td>blastoid 60h TROP2 min</td>
+<td>Rivron</td>
+<td>60h</td>
+<td>TROP2-</td>
+<td>7449</td>
+<td>1845767.0</td>
+<td>67667.0</td>
+<td>3.666064</td>
+</tr>
+</tbody>
+</table>
+
+<p>2421 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'total_counts'</span>, y<span class="op">=</span><span class="st">'n_genes_by_counts'</span>, data<span class="op">=</span>adata_rivron.obs, hue<span class="op">=</span><span class="st">'batch'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>&lt;Axes: xlabel='total_counts', ylabel='n_genes_by_counts'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="06_human_query_Rivron_SRR_files/figure-html/cell-27-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>adata_rivron <span class="op">=</span> adata_rivron[adata_rivron.obs.pct_counts_mt <span class="op">&lt;</span> <span class="fl">12.5</span>].copy()</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata_rivron, min_counts<span class="op">=</span><span class="fl">2.5e5</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata_rivron, max_counts<span class="op">=</span><span class="fl">2.5e6</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata_rivron, min_genes<span class="op">=</span><span class="dv">2_000</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>adata_rivron.layers[<span class="st">"counts"</span>] <span class="op">=</span> adata_rivron.X.copy()</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>sc.pp.normalize_total(adata_rivron, target_sum<span class="op">=</span><span class="dv">10_000</span>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>sc.pp.log1p(adata_rivron)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>adata_rivron.raw <span class="op">=</span> adata_rivron</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove mitochondrial genes</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>adata_rivron <span class="op">=</span> adata_rivron[:, adata_rivron.var[<span class="op">~</span>adata_rivron.var.gene_symbol.<span class="bu">str</span>.startswith(<span class="st">'MT-'</span>)].index].copy()</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove ribosomal genes</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>adata_rivron <span class="op">=</span> adata_rivron[:, adata_rivron.var[<span class="op">~</span>adata_rivron.var.gene_symbol.<span class="bu">str</span>.startswith((<span class="st">'RPS'</span>, <span class="st">'RPL'</span>))].index].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>adata_rivron.write_h5ad(<span class="st">'../results/06_human_Rivron.h5ad'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> sc.read_h5ad(<span class="st">'../results/06_human_Rivron.h5ad'</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>query.obs[<span class="st">'experiment'</span>] <span class="op">=</span> <span class="st">'Rivron'</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>AnnData object with n_obs × n_vars = 1762 × 61002
+    obs: 'sample', 'sample_title', 'batch', 'time', 'flow', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 'pct_counts_mt', 'n_counts', 'n_genes', 'experiment'
+    var: 'gene_symbol', 'mt', 'n_cells_by_counts', 'mean_counts', 'pct_dropout_by_counts', 'total_counts'
+    uns: 'log1p'
+    layers: 'counts'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.load(<span class="st">"../results/02_human_integration/05_scanvi_ns15/"</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co">#lvae = scvi.model.SCANVI.load("../results/deprecated/human_integration/version_1/scanvi/")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_human_integration/05_scanvi_ns15/model.pt already downloaded                           </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>scvi.model.SCVI.prepare_query_anndata(query, lvae)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Found 92.96666666666667% reference vars in query data.                                                    </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>lvae_q <span class="op">=</span> scvi.model.SCANVI.load_query_data(query, lvae)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lvae_q.train(</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    max_epochs<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    plan_kwargs<span class="op">=</span><span class="bu">dict</span>(weight_decay<span class="op">=</span><span class="fl">0.0</span>),</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    check_val_every_n_epoch<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    early_stopping<span class="op">=</span><span class="va">True</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Training for 100 epochs.                                                                                  
+Epoch 100/100: 100%|█████████████████████| 100/100 [00:20&lt;00:00,  4.97it/s, v_num=1, train_loss_step=4.93e+3, train_loss_epoch=4.65e+3]Epoch 100/100: 100%|█████████████████████| 100/100 [00:20&lt;00:00,  4.83it/s, v_num=1, train_loss_step=4.93e+3, train_loss_epoch=4.65e+3]</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+`Trainer.fit` stopped: `max_epochs=100` reached.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>query.obsm[<span class="st">"X_scANVI"</span>] <span class="op">=</span> lvae_q.get_latent_representation()</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>query.obs[<span class="st">"predictions"</span>] <span class="op">=</span> lvae_q.predict()</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>query.obs[<span class="st">'entropy'</span>] <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> lvae_q.predict(soft<span class="op">=</span><span class="va">True</span>).<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(query.obs.predictions, query.obs.flow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">flow</th>
+<th data-quarto-table-cell-role="th">Double-neg</th>
+<th data-quarto-table-cell-role="th">PDGFRA+</th>
+<th data-quarto-table-cell-role="th">TROP2+</th>
+<th data-quarto-table-cell-role="th">TROP2-</th>
+<th data-quarto-table-cell-role="th">na</th>
+<th data-quarto-table-cell-role="th">naive</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">predictions</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8C_3.0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Epiblast_6.0</td>
+<td>146</td>
+<td>8</td>
+<td>52</td>
+<td>80</td>
+<td>72</td>
+<td>49</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Epiblast_7.0</td>
+<td>120</td>
+<td>9</td>
+<td>71</td>
+<td>65</td>
+<td>88</td>
+<td>39</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Inner Cell Mass</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Late epiblast</td>
+<td>124</td>
+<td>12</td>
+<td>42</td>
+<td>18</td>
+<td>32</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Morula_4.0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Primitive Endoderm</td>
+<td>33</td>
+<td>121</td>
+<td>33</td>
+<td>36</td>
+<td>16</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Trophectoderm_10.0</td>
+<td>3</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Trophectoderm_5.0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Trophectoderm_6.0</td>
+<td>4</td>
+<td>0</td>
+<td>76</td>
+<td>2</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Trophectoderm_7.0</td>
+<td>15</td>
+<td>0</td>
+<td>140</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Trophectoderm_8.0</td>
+<td>14</td>
+<td>2</td>
+<td>52</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Trophectoderm_9.0</td>
+<td>7</td>
+<td>0</td>
+<td>111</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(query.obs.predictions, query.obs.time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">0h</th>
+<th data-quarto-table-cell-role="th">24h</th>
+<th data-quarto-table-cell-role="th">60h</th>
+<th data-quarto-table-cell-role="th">96h</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">predictions</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8C_3.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Epiblast_6.0</td>
+<td>49</td>
+<td>72</td>
+<td>120</td>
+<td>166</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Epiblast_7.0</td>
+<td>39</td>
+<td>88</td>
+<td>111</td>
+<td>154</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Inner Cell Mass</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Late epiblast</td>
+<td>42</td>
+<td>32</td>
+<td>38</td>
+<td>158</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Morula_4.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Primitive Endoderm</td>
+<td>6</td>
+<td>16</td>
+<td>66</td>
+<td>157</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Trophectoderm_10.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Trophectoderm_5.0</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Trophectoderm_6.0</td>
+<td>1</td>
+<td>6</td>
+<td>62</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Trophectoderm_7.0</td>
+<td>0</td>
+<td>1</td>
+<td>30</td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Trophectoderm_8.0</td>
+<td>1</td>
+<td>0</td>
+<td>4</td>
+<td>64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Trophectoderm_9.0</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+<td>113</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>sc.pp.highly_variable_genes(</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    query,</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    flavor<span class="op">=</span><span class="st">"seurat_v3"</span>,</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    n_top_genes<span class="op">=</span><span class="dv">5_000</span>,</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    layer<span class="op">=</span><span class="st">"counts"</span>,</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    batch_key<span class="op">=</span><span class="st">"batch"</span>,</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    subset<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(query)</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>sc.tl.umap(query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>WARNING: You’re trying to run this on 3000 dimensions of `.X`, if you really want this, set `use_rep='X'`.
+         Falling back to preprocessing with `sc.pp.pca` and default params.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>2024-01-12 17:05:15.412966: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(query, color<span class="op">=</span>[<span class="st">'predictions'</span>,<span class="st">'time'</span>, <span class="st">'flow'</span>, <span class="st">'entropy'</span>], ncols<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="06_human_query_Rivron_SRR_files/figure-html/cell-40-output-1.png"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

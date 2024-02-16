@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.302">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Martin Proks">
+<meta name="dcterms.date" content="2023-01-09">
+
+<title>proks-salehin-et-al-2023 - 04 - CellRank</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/00_figures_common.html">Reports</a></li><li class="breadcrumb-item"><a href="../notebooks/04_mouse_cellrank.html">04 - CellRank</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">proks-salehin-et-al-2023</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://twitter.com/LabBrickman" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/brickmanlab" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">proks-salehin-et-al</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Reports</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_common.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures (common)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human-invitro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [mouse]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_human_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - human analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_mouse_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - mouse analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_human_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Human CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_mouse_cellrank.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">04 - CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_human_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Re-annotation and classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier_accuracy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier accuracy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_human_query_Rivron_SRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rivron blastoids cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_mouse_query.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 - mouse query</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/08_shap_explainers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SHAP explainers for SCANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/09_classification_explanation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 - Classification explanation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/10_mouse_beyond_celltypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_human_query_Smith.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Austin Smith paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_xgboost_vs_scanvi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 - XGBoost vs scANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/12_upload_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload AI models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pseudokernel" id="toc-pseudokernel" class="nav-link active" data-scroll-target="#pseudokernel"><span class="header-section-number">1</span> 1. PseudoKernel</a>
+  <ul class="collapse">
+  <li><a href="#initial-and-terminal-states" id="toc-initial-and-terminal-states" class="nav-link" data-scroll-target="#initial-and-terminal-states"><span class="header-section-number">1.1</span> Initial and Terminal states</a></li>
+  </ul></li>
+  <li><a href="#realtimekernel" id="toc-realtimekernel" class="nav-link" data-scroll-target="#realtimekernel"><span class="header-section-number">2</span> 2. RealtimeKernel</a></li>
+  <li><a href="#pseudotime" id="toc-pseudotime" class="nav-link" data-scroll-target="#pseudotime"><span class="header-section-number">3</span> Pseudotime</a></li>
+  <li><a href="#hack" id="toc-hack" class="nav-link" data-scroll-target="#hack"><span class="header-section-number">4</span> Hack</a></li>
+  <li><a href="#save-session" id="toc-save-session" class="nav-link" data-scroll-target="#save-session"><span class="header-section-number">5</span> Save session</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">04 - CellRank</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Martin Proks </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 9, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>which pip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>~/projects/data/Brickman/conda/envs/scvi-1.0.0/bin/pip</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cellrank <span class="im">as</span> cr</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scanpy <span class="im">as</span> sc</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sc.settings.set_figure_params(frameon<span class="op">=</span><span class="va">False</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cr.settings.verbosity <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">"ignore"</span>, category<span class="op">=</span><span class="pp">UserWarning</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scvelo <span class="im">as</span> scv</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>scv.set_figure_params(<span class="st">'scvelo'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> sc.read(<span class="st">"../results/03_mouse.processed.h5ad"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>adata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>AnnData object with n_obs × n_vars = 2004 × 3000
+    obs: 'batch', 'experiment', 'technology', 'ct', 'ct_orig', 'stage', 'timepoint', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 'pct_counts_mt', 'n_genes', 'n_counts', 'batch_og', '_scvi_batch', '_scvi_labels', 'leiden', 'dpt_pseudotime', 't', 'seg', 'edge', 't_sd', 'milestones', 'draw_graph_fa_density_ct'
+    var: 'gene_ids', 'gene_symbol', 'mt', 'n_cells_by_counts', 'mean_counts', 'pct_dropout_by_counts', 'total_counts', 'n_cells', 'highly_variable', 'means', 'dispersions', 'dispersions_norm', 'highly_variable_nbatches', 'highly_variable_intersection'
+    uns: '_scvi_manager_uuid', '_scvi_uuid', 'ct_colors', 'ct_sizes', 'dendro_segments', 'diffmap_evals', 'draw_graph', 'draw_graph_fa_density_ct_params', 'experiment_colors', 'graph', 'hvg', 'iroot', 'leiden', 'log1p', 'milestones_colors', 'neighbors', 'paga', 'pca', 'ppt', 'pseudotime_list', 'seg_colors', 'stage_colors', 'timepoint_colors', 'tsne', 'umap'
+    obsm: 'X_R', 'X_dendro', 'X_diffmap', 'X_diffmap_', 'X_draw_graph_fa', 'X_mde_scVI', 'X_pca', 'X_phate', 'X_scVI', 'X_tsne', 'X_umap'
+    varm: 'PCs'
+    layers: 'counts', 'scVI_normalized'
+    obsp: 'connectivities', 'distances'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(adata, use_rep<span class="op">=</span><span class="st">'X_scVI'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sc.tl.diffmap(adata)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sc.tl.paga(adata, groups<span class="op">=</span><span class="st">'ct'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>sc.pl.paga(adata, color<span class="op">=</span>[<span class="st">'ct'</span>], frameon<span class="op">=</span><span class="va">False</span>, fontoutline<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>sc.tl.draw_graph(adata, init_pos<span class="op">=</span><span class="st">'paga'</span>, n_jobs<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>2023-11-20 20:08:29.075804: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-7-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sc.pl.paga(adata, color<span class="op">=</span>[<span class="st">'ct'</span>], frameon<span class="op">=</span><span class="va">False</span>, fontoutline<span class="op">=</span><span class="va">True</span>, threshold<span class="op">=</span><span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-8-output-1.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sc.pl.embedding(adata, basis<span class="op">=</span><span class="st">"X_draw_graph_fa"</span>, color<span class="op">=</span>[<span class="st">"stage"</span>, <span class="st">"t"</span>, <span class="st">"dpt_pseudotime"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-9-output-1.png"></p>
+</div>
+</div>
+<section id="pseudokernel" class="level2" data-number="1">
+<h2 data-number="1" data-anchor-id="pseudokernel"><span class="header-section-number">1</span> 1. PseudoKernel</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cellrank.kernels <span class="im">import</span> PseudotimeKernel</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>pk <span class="op">=</span> PseudotimeKernel(adata, time_key<span class="op">=</span><span class="st">"t"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pk.compute_transition_matrix()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pk.plot_random_walks(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    n_sims<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    start_ixs<span class="op">=</span>{<span class="st">"stage"</span>: <span class="st">"Zygote"</span>},</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    basis<span class="op">=</span><span class="st">"X_draw_graph_fa"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    legend_loc<span class="op">=</span><span class="st">"right"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    dpi<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pk.plot_projection(basis<span class="op">=</span><span class="st">"X_draw_graph_fa"</span>, recompute<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'stage'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="initial-and-terminal-states" class="level3" data-number="1.1">
+<h3 data-number="1.1" data-anchor-id="initial-and-terminal-states"><span class="header-section-number">1.1</span> Initial and Terminal states</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> cr.estimators.GPCCA(pk)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>g.fit(cluster_key<span class="op">=</span><span class="st">"stage"</span>, n_states<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">12</span>])</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"all"</span>, discrete<span class="op">=</span><span class="va">True</span>, legend_loc<span class="op">=</span><span class="st">"right"</span>, s<span class="op">=</span><span class="dv">100</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>g.predict_terminal_states(n_states<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"terminal"</span>, legend_loc<span class="op">=</span><span class="st">"right"</span>, s<span class="op">=</span><span class="dv">100</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"terminal"</span>, discrete<span class="op">=</span><span class="va">False</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>g.predict_initial_states(allow_overlap<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"initial"</span>, legend_loc<span class="op">=</span><span class="st">"right"</span>, s<span class="op">=</span><span class="dv">100</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>g.plot_coarse_T()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>g.compute_fate_probabilities()</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>g.plot_fate_probabilities(same_plot<span class="op">=</span><span class="va">False</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>g.plot_fate_probabilities(same_plot<span class="op">=</span><span class="va">True</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>, color<span class="op">=</span>[<span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'blue'</span>, <span class="st">'black'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>g.compute_absorption_times()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>g.compute_lineage_drivers()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>g.absorption_times</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="realtimekernel" class="level2" data-number="2">
+<h2 data-number="2" data-anchor-id="realtimekernel"><span class="header-section-number">2</span> 2. RealtimeKernel</h2>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cellrank.kernels <span class="im">import</span> RealTimeKernel</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> moscot.problems.time <span class="im">import</span> TemporalProblem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'cr_timepoint'</span>] <span class="op">=</span> adata.obs.timepoint.cat.rename_categories({</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Zygote'</span>: <span class="fl">0.5</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'2C'</span>: <span class="fl">1.5</span>, </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'4C'</span>: <span class="fl">2.0</span>, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'8C'</span>: <span class="fl">2.5</span>, </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'16C'</span>: <span class="dv">3</span>, </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'E3.25'</span>: <span class="fl">3.25</span>, </span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'E3.5'</span>: <span class="fl">3.5</span>, </span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'E3.75'</span>: <span class="fl">3.75</span>, </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'E4.5'</span>: <span class="fl">4.5</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>adata.obs.cr_timepoint.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>3.5     995
+4.5     343
+3.0     198
+2.5     115
+2.0     114
+3.25     87
+1.5      86
+3.75     48
+0.5      18
+Name: cr_timepoint, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sc.pl.embedding(adata, basis<span class="op">=</span><span class="st">"X_draw_graph_fa"</span>, color<span class="op">=</span>[<span class="st">"stage"</span>, <span class="st">"t"</span>, <span class="st">"cr_timepoint"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-28-output-1.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>adata_sub <span class="op">=</span> adata[adata.obs.cr_timepoint <span class="op">!=</span> <span class="fl">0.5</span>].copy()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>adata_sub.obs.cr_timepoint.value_counts()</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># adata_sub = adata.copy()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="131">
+<pre><code>3.5     995
+4.5     343
+3.0     198
+2.5     115
+2.0     114
+3.25     87
+1.5      86
+3.75     48
+Name: cr_timepoint, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sc.pp.pca(adata_sub)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(adata_sub, random_state<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>tp <span class="op">=</span> TemporalProblem(adata_sub)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tp = tp.prepare(time_key="cr_timepoint", joint_attr='X_scVI')</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>tp <span class="op">=</span> tp.prepare(time_key<span class="op">=</span><span class="st">"cr_timepoint"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Ordering Index(['SRX259148', 'SRX259191', 'SRX259121', 'SRX259140', 'SRX259161',                          
+                'SRX259210', 'SRX259133', 'SRX259142', 'SRX259106', 'SRX386064',                                   
+                ...                                                                                                
+                'GSM2687789', 'GSM2687797', 'GSM2687761', 'GSM2687760', 'GSM2687841',                              
+                'GSM2687771', 'GSM2687764', 'GSM2687837', 'GSM2687752', 'GSM2687839'],                             
+               dtype='object', length=1986) in ascending order.                                                    
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  
+INFO     Computing pca with `n_comps=30` for `xy` using `adata.X`                                                  </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>tp <span class="op">=</span> tp.solve(epsilon<span class="op">=</span><span class="fl">1e-3</span>, tau_a<span class="op">=</span><span class="fl">0.95</span>, scale_cost<span class="op">=</span><span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Solving `7` problems                                                                                      
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(48, 343)].                                     
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(115, 198)].                                    
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(87, 48)].                                      
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(995, 87)].                                     
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(198, 995)].                                    
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(114, 115)].                                    
+INFO     Solving problem BirthDeathProblem[stage='prepared', shape=(86, 114)].                                     </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>tmk <span class="op">=</span> RealTimeKernel.from_moscot(tp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>tmk.compute_transition_matrix()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:00&lt;00:00, 58254.22time pair/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Using automatic `threshold=2.4929099680338496e-42`
+Computing transition matrix based on `adata.obsp['connectivities']`
+    Finish (0:00:00)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="137">
+<pre><code>RealTimeKernel[n=1986, threshold='auto', self_transitions='connectivities']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>tmk.plot_random_walks(</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    max_iter<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    start_ixs<span class="op">=</span>{<span class="st">"cr_timepoint"</span>: <span class="fl">1.5</span>},</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    basis<span class="op">=</span><span class="st">"draw_graph_fa"</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    dpi<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simulating `100` random walks of maximum length `500`
+    Finish (0:00:07)
+Plotting random walks</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:06&lt;00:00, 14.52sim/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-36-output-3.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> tmk.plot_single_flow(cluster_key<span class="op">=</span><span class="st">'stage'</span>, time_key<span class="op">=</span><span class="st">"cr_timepoint"</span>, cluster<span class="op">=</span><span class="st">"ICM"</span>, show<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.invert_xaxis()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>WARNING: Categories are not ordered. Using ascending order
+Computing flow from `ICM` into `7` cluster(s) in `7` time points
+Plotting flow from `ICM` into `3` cluster(s) in `7` time points</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-37-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> cr.estimators.GPCCA(tmk)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
+<pre><code>GPCCA[kernel=RealTimeKernel[n=1986], initial_states=None, terminal_states=None]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>g.fit(cluster_key<span class="op">=</span><span class="st">"stage"</span>, n_states<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">12</span>])</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"all"</span>, discrete<span class="op">=</span><span class="va">True</span>, legend_loc<span class="op">=</span><span class="st">"right"</span>, s<span class="op">=</span><span class="dv">100</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>WARNING: Unable to import `petsc4py` or `slepc4py`. Using `method='brandts'`
+WARNING: For `method='brandts'`, dense matrix is required. Densifying
+Computing Schur decomposition
+Adding `adata.uns['eigendecomposition_fwd']`
+       `.schur_vectors`
+       `.schur_matrix`
+       `.eigendecomposition`
+    Finish (0:00:10)
+Calculating minChi criterion in interval `[4, 12]`
+Computing `6` macrostates
+Adding `.macrostates`
+       `.macrostates_memberships`
+       `.coarse_T`
+       `.coarse_initial_distribution
+       `.coarse_stationary_distribution`
+       `.schur_vectors`
+       `.schur_matrix`
+       `.eigendecomposition`
+    Finish (0:00:02)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-39-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>g.predict_terminal_states(n_states<span class="op">=</span><span class="dv">3</span>, allow_overlap<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"terminal"</span>, legend_loc<span class="op">=</span><span class="st">"right"</span>, s<span class="op">=</span><span class="dv">100</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Adding `adata.obs['term_states_fwd']`
+       `adata.obs['term_states_fwd_probs']`
+       `.terminal_states`
+       `.terminal_states_probabilities`
+       `.terminal_states_memberships
+    Finish`</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-40-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"terminal"</span>, discrete<span class="op">=</span><span class="va">False</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-41-output-1.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>g.predict_initial_states(allow_overlap<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>g.plot_macrostates(which<span class="op">=</span><span class="st">"initial"</span>, legend_loc<span class="op">=</span><span class="st">"right"</span>, s<span class="op">=</span><span class="dv">100</span>, basis<span class="op">=</span><span class="st">'X_draw_graph_fa'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Adding `adata.obs['init_states_fwd']`
+       `adata.obs['init_states_fwd_probs']`
+       `.initial_states`
+       `.initial_states_probabilities`
+       `.initial_states_memberships
+    Finish`</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-42-output-2.png"></p>
+</div>
+</div>
+</section>
+<section id="pseudotime" class="level2" data-number="3">
+<h2 data-number="3" data-anchor-id="pseudotime"><span class="header-section-number">3</span> Pseudotime</h2>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scvelo <span class="im">as</span> scv</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>scv.set_figure_params(<span class="st">'scvelo'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> scv.datasets.pancreas()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>scv.pp.filter_genes(test, min_shared_counts<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>scv.pp.normalize_per_cell(test)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>scv.pp.filter_genes_dispersion(test, n_top_genes<span class="op">=</span><span class="dv">2000</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>scv.pp.log1p(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>scv.pp.filter_and_normalize(test, min_shared_counts<span class="op">=</span><span class="dv">20</span>, n_top_genes<span class="op">=</span><span class="dv">2000</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>scv.pp.moments(test, n_pcs<span class="op">=</span><span class="dv">30</span>, n_neighbors<span class="op">=</span><span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>scv.tl.velocity(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>scv.tl.velocity_graph(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>test.uns.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>test.uns[<span class="st">'velocity_graph'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>scv.pl.velocity_embedding_stream(test, basis<span class="op">=</span><span class="st">'umap'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>scv.pl.velocity_graph(test, threshold<span class="op">=</span><span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>scv.tl.velocity_pseudotime(test, use_velocity_graph<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>scv.pl.scatter(test, color<span class="op">=</span><span class="st">'velocity_pseudotime'</span>, cmap<span class="op">=</span><span class="st">'gnuplot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>test.obs.end_points</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hack" class="level2" data-number="4">
+<h2 data-number="4" data-anchor-id="hack"><span class="header-section-number">4</span> Hack</h2>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tmk.adata.obs[tmk.adata.obs.timepoint == 'E4.5'].sort_values(by='t')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scvelo.tl.velocity_pseudotime <span class="im">import</span> VPT</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scvelo.utils <span class="im">import</span> scale</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="171">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vpt = VPT(test)</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>vpt <span class="op">=</span> VPT(tmk.adata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="172">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>vpt._transitions_sym <span class="op">=</span> tmk.transition_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="173">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>vpt.compute_eigen(n_comps<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="174">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>vpt.set_iroot(<span class="st">'SRX259216'</span>)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>vpt.compute_pseudotime()</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>dpt_root <span class="op">=</span> vpt.pseudotime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="175">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>vpt.set_iroot(<span class="st">'Lib1-2_E4.5_CAGCTGGGTAACGCGA'</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>vpt.compute_pseudotime(inverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>dpt_end <span class="op">=</span> vpt.pseudotime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="176">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge dpt_root and inverse dpt_end together</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>vpt.pseudotime <span class="op">=</span> np.nan_to_num(dpt_root) <span class="op">+</span> np.nan_to_num(dpt_end)</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>vpt.pseudotime[np.isfinite(dpt_root) <span class="op">&amp;</span> np.isfinite(dpt_end)] <span class="op">/=</span> <span class="dv">2</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>vpt.pseudotime <span class="op">=</span> scale(vpt.pseudotime)</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>vpt.pseudotime[np.isnan(dpt_root) <span class="op">&amp;</span> np.isnan(dpt_end)] <span class="op">=</span> np.nan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="177">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>vpt.branchings_segments()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="178">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'hack'</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>adata.obs.loc[tmk.adata.obs_names, <span class="st">'hack'</span>] <span class="op">=</span> vpt.pseudotime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="179">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>sc.pl.embedding(adata, basis<span class="op">=</span><span class="st">"X_draw_graph_fa"</span>, color<span class="op">=</span>[<span class="st">"stage"</span>, <span class="st">"t"</span>, <span class="st">"hack"</span>], cmap<span class="op">=</span><span class="st">'tab10'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="04_mouse_cellrank_files/figure-html/cell-66-output-1.png"></p>
+</div>
+</div>
+</section>
+<section id="save-session" class="level2" data-number="5">
+<h2 data-number="5" data-anchor-id="save-session"><span class="header-section-number">5</span> Save session</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Doesn't work</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="co"># TypeError: _write_lineage() got an unexpected keyword argument '_writer'</span></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Above error raised while writing key 'macrostates_fwd_memberships' of &lt;class 'h5py._hl.group.Group'&gt; to /</span></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="co"># adata.write("../results/04_mouse.cellrank.h5ad")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

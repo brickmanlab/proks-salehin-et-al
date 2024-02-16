@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.302">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Martin Proks">
+<meta name="dcterms.date" content="2024-08-09">
+
+<title>proks-salehin-et-al-2023 - 05 - mouse classifier</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/00_figures_common.html">Reports</a></li><li class="breadcrumb-item"><a href="../notebooks/05_mouse_classifier.html">05 - mouse classifier</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">proks-salehin-et-al-2023</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://twitter.com/LabBrickman" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/brickmanlab" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">proks-salehin-et-al</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Reports</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_common.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures (common)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human-invitro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [mouse]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_human_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - human analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_mouse_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - mouse analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_human_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Human CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_mouse_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 - CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_human_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Re-annotation and classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier_accuracy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier accuracy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_human_query_Rivron_SRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rivron blastoids cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_mouse_query.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 - mouse query</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/08_shap_explainers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SHAP explainers for SCANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/09_classification_explanation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 - Classification explanation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/10_mouse_beyond_celltypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_human_query_Smith.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Austin Smith paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_xgboost_vs_scanvi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 - XGBoost vs scANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/12_upload_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload AI models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#scanvi" id="toc-scanvi" class="nav-link active" data-scroll-target="#scanvi"><span class="header-section-number">1</span> 1. scANVI</a></li>
+  <li><a href="#scanvi-n_samples_per_label15" id="toc-scanvi-n_samples_per_label15" class="nav-link" data-scroll-target="#scanvi-n_samples_per_label15"><span class="header-section-number">2</span> 2. scANVI (<code>n_samples_per_label=15</code>)</a></li>
+  <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost"><span class="header-section-number">3</span> 3. XGBoost</a>
+  <ul class="collapse">
+  <li><a href="#scvi" id="toc-scvi" class="nav-link" data-scroll-target="#scvi"><span class="header-section-number">3.1</span> 3.1. scVI</a></li>
+  <li><a href="#scanvi-1" id="toc-scanvi-1" class="nav-link" data-scroll-target="#scanvi-1"><span class="header-section-number">3.2</span> 3.2. scANVI</a></li>
+  <li><a href="#scgen" id="toc-scgen" class="nav-link" data-scroll-target="#scgen"><span class="header-section-number">3.3</span> 3.3. scGEN</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4</span> 4. Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">05 - mouse classifier</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Martin Proks </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 9, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this notebook we construct multiple classifier which will try to predict cell type (<code>ct</code>):</p>
+<!-- - _naive_ (`sc.tl.score_genes` using known markers) -->
+<ul>
+<li><em>SCANVI</em></li>
+<li><em>XGBoost</em>
+<ul>
+<li>scVI embedding space</li>
+<li>scANVI embedding space <!--     - scGen embedding space --></li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>which pip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/projects/dan1/data/Brickman/conda/envs/scvi-1.0.0/bin/pip</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scvi</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scgen</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Tuple</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba.core.errors <span class="im">import</span> NumbaDeprecationWarning, NumbaPendingDeprecationWarning</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span>NumbaDeprecationWarning)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span>NumbaPendingDeprecationWarning)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">UserWarning</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>scvi.settings.seed <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">'CUDA_VISIBLE_DEVICES'</span>] <span class="op">=</span> <span class="st">'1,2'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/projects/dan1/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/scvi/_settings.py:63: UserWarning: Since v1.0.0, scvi-tools no longer uses a random seed by default. Run `scvi.settings.seed = 0` to reproduce results from previous versions.
+  self.seed = seed
+/projects/dan1/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/scvi/_settings.py:70: UserWarning: Setting `dl_pin_memory_gpu_training` is deprecated in v1.0 and will be removed in v1.1. Please pass in `pin_memory` to the data loaders instead.
+  self.dl_pin_memory_gpu_training = (
+/projects/dan1/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+[rank: 0] Global seed set to 0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run ..<span class="op">/</span>scripts<span class="op">/</span>helpers.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, balanced_accuracy_score, f1_score</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prediction_stats(label: <span class="bu">str</span>, model, y_test, y_pred, X, Y):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    stats <span class="op">=</span> [ </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        label,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        accuracy_score(y_test, y_pred),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        balanced_accuracy_score(y_test, y_pred),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">"micro"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">"macro"</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        np.nan</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> model <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> stats</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cross Validation</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    kfold <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span><span class="dv">10</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">=</span> cross_val_score(model, X, Y, cv <span class="op">=</span> kfold, n_jobs <span class="op">=</span> <span class="dv">8</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    stats[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> scores.mean()</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> stats</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="scanvi" class="level2" data-number="1">
+<h2 data-number="1" data-anchor-id="scanvi"><span class="header-section-number">1</span> 1. scANVI</h2>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.load(<span class="st">"../results/02_mouse_integration/scanvi/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_mouse_integration/scanvi/model.pt already downloaded                                   </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> lvae.adata.obs.ct.values</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> lvae.predict(lvae.adata)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>stats.append(prediction_stats(<span class="st">"scANVI"</span>, <span class="va">None</span>, y_test, y_pred, <span class="va">None</span>, <span class="va">None</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scanvi-n_samples_per_label15" class="level2" data-number="2">
+<h2 data-number="2" data-anchor-id="scanvi-n_samples_per_label15"><span class="header-section-number">2</span> 2. scANVI (<code>n_samples_per_label=15</code>)</h2>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vae <span class="op">=</span> scvi.model.SCVI.load(<span class="st">"../results/02_mouse_integration/scvi/"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.from_scvi_model(vae, labels_key<span class="op">=</span><span class="st">"ct"</span>, unlabeled_category<span class="op">=</span><span class="st">"Unknown"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>lvae.train(max_epochs<span class="op">=</span><span class="dv">20</span>, n_samples_per_label<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>lvae.save(<span class="st">"../results/02_mouse_integration/scanvi_ns_15/"</span>, overwrite<span class="op">=</span><span class="va">True</span>, save_anndata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_mouse_integration/scvi/model.pt already downloaded                                     
+INFO     Training for 20 epochs.                                                                                   
+Epoch 20/20: 100%|███████████████████████████| 20/20 [00:06&lt;00:00,  3.11it/s, v_num=1, train_loss_step=5.75e+3, train_loss_epoch=5.12e+3]Epoch 20/20: 100%|███████████████████████████| 20/20 [00:06&lt;00:00,  3.15it/s, v_num=1, train_loss_step=5.75e+3, train_loss_epoch=5.12e+3]</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1,2]
+`Trainer.fit` stopped: `max_epochs=20` reached.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> lvae.adata.obs.ct.values</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> lvae.predict()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>stats.append(prediction_stats(<span class="st">"scANVI_ns15"</span>, <span class="va">None</span>, y_test, y_pred, <span class="va">None</span>, <span class="va">None</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="xgboost" class="level2" data-number="3">
+<h2 data-number="3" data-anchor-id="xgboost"><span class="header-section-number">3</span> 3. XGBoost</h2>
+<section id="scvi" class="level3" data-number="3.1">
+<h3 data-number="3.1" data-anchor-id="scvi"><span class="header-section-number">3.1</span> 3.1. scVI</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vae <span class="op">=</span> scvi.model.SCVI.load(<span class="st">"../results/02_mouse_integration/scvi/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_mouse_integration/scvi/model.pt already downloaded                                     </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vae_df <span class="op">=</span> pd.DataFrame(vae.get_normalized_expression(return_mean<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vae_df[<span class="st">'target'</span>] <span class="op">=</span> vae.adata.obs.ct</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>vae_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sox17</th>
+<th data-quarto-table-cell-role="th">ppp1r42</th>
+<th data-quarto-table-cell-role="th">arfgef1</th>
+<th data-quarto-table-cell-role="th">prdm14</th>
+<th data-quarto-table-cell-role="th">xkr9</th>
+<th data-quarto-table-cell-role="th">msc</th>
+<th data-quarto-table-cell-role="th">ube2w</th>
+<th data-quarto-table-cell-role="th">gm7654</th>
+<th data-quarto-table-cell-role="th">tmem70</th>
+<th data-quarto-table-cell-role="th">ly96</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">stn1</th>
+<th data-quarto-table-cell-role="th">gsto1</th>
+<th data-quarto-table-cell-role="th">1700054a03rik</th>
+<th data-quarto-table-cell-role="th">gm50273</th>
+<th data-quarto-table-cell-role="th">habp2</th>
+<th data-quarto-table-cell-role="th">ccdc186</th>
+<th data-quarto-table-cell-role="th">afap1l2</th>
+<th data-quarto-table-cell-role="th">pnlip</th>
+<th data-quarto-table-cell-role="th">pnliprp2</th>
+<th data-quarto-table-cell-role="th">target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259148</td>
+<td>9.244410e-09</td>
+<td>1.495744e-07</td>
+<td>0.000106</td>
+<td>0.000002</td>
+<td>0.000030</td>
+<td>2.020811e-04</td>
+<td>0.000375</td>
+<td>1.544236e-09</td>
+<td>0.000513</td>
+<td>0.000280</td>
+<td>...</td>
+<td>0.000278</td>
+<td>0.004330</td>
+<td>7.987154e-08</td>
+<td>3.248621e-10</td>
+<td>5.573803e-09</td>
+<td>0.000101</td>
+<td>5.110550e-08</td>
+<td>1.434869e-09</td>
+<td>4.117884e-05</td>
+<td>16C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX259191</td>
+<td>2.290104e-07</td>
+<td>2.459044e-09</td>
+<td>0.000065</td>
+<td>0.000006</td>
+<td>0.000080</td>
+<td>4.674523e-05</td>
+<td>0.000086</td>
+<td>4.516714e-07</td>
+<td>0.000462</td>
+<td>0.000328</td>
+<td>...</td>
+<td>0.000394</td>
+<td>0.001819</td>
+<td>6.749668e-11</td>
+<td>1.539256e-09</td>
+<td>6.671179e-09</td>
+<td>0.000118</td>
+<td>2.692376e-07</td>
+<td>8.009134e-07</td>
+<td>9.071199e-05</td>
+<td>8C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259121</td>
+<td>9.530742e-11</td>
+<td>1.176371e-06</td>
+<td>0.000106</td>
+<td>0.000005</td>
+<td>0.000014</td>
+<td>4.688524e-04</td>
+<td>0.000103</td>
+<td>7.302969e-12</td>
+<td>0.000299</td>
+<td>0.000452</td>
+<td>...</td>
+<td>0.000032</td>
+<td>0.001475</td>
+<td>1.854037e-07</td>
+<td>1.135729e-09</td>
+<td>1.288587e-10</td>
+<td>0.000048</td>
+<td>1.281698e-08</td>
+<td>7.423926e-10</td>
+<td>6.965978e-06</td>
+<td>16C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX259140</td>
+<td>2.935074e-08</td>
+<td>1.263999e-08</td>
+<td>0.000069</td>
+<td>0.000011</td>
+<td>0.000058</td>
+<td>8.229597e-05</td>
+<td>0.000256</td>
+<td>1.905268e-08</td>
+<td>0.000314</td>
+<td>0.000802</td>
+<td>...</td>
+<td>0.000497</td>
+<td>0.003291</td>
+<td>1.695690e-09</td>
+<td>4.987342e-10</td>
+<td>1.461652e-08</td>
+<td>0.000127</td>
+<td>1.668044e-07</td>
+<td>5.001769e-08</td>
+<td>9.694348e-05</td>
+<td>16C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259161</td>
+<td>4.501800e-08</td>
+<td>3.915447e-09</td>
+<td>0.000240</td>
+<td>0.000057</td>
+<td>0.000007</td>
+<td>3.080844e-07</td>
+<td>0.000202</td>
+<td>1.228954e-06</td>
+<td>0.000794</td>
+<td>0.000154</td>
+<td>...</td>
+<td>0.000211</td>
+<td>0.000063</td>
+<td>4.561012e-12</td>
+<td>9.231247e-08</td>
+<td>3.405940e-10</td>
+<td>0.000431</td>
+<td>3.755741e-05</td>
+<td>2.560960e-06</td>
+<td>7.125635e-07</td>
+<td>4C</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 3001 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>X_train, y_train, X_test, y_test <span class="op">=</span> train_test_split_by_group(vae_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vae_xgboost <span class="op">=</span> train_xgboost(vae_df, X_train, y_train, X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0] validation_0-merror:0.03004 validation_0-mlogloss:1.09462   validation_1-merror:0.08128 validation_1-mlogloss:1.19250
+[1] validation_0-merror:0.01877 validation_0-mlogloss:0.77131   validation_1-merror:0.05419 validation_1-mlogloss:0.88954
+[2] validation_0-merror:0.01690 validation_0-mlogloss:0.56525   validation_1-merror:0.05172 validation_1-mlogloss:0.69790
+[3] validation_0-merror:0.01189 validation_0-mlogloss:0.42255   validation_1-merror:0.04433 validation_1-mlogloss:0.56222
+[4] validation_0-merror:0.00876 validation_0-mlogloss:0.32044   validation_1-merror:0.04680 validation_1-mlogloss:0.46083
+[5] validation_0-merror:0.00626 validation_0-mlogloss:0.24549   validation_1-merror:0.04926 validation_1-mlogloss:0.38825
+[6] validation_0-merror:0.00438 validation_0-mlogloss:0.18819   validation_1-merror:0.04926 validation_1-mlogloss:0.33157
+[7] validation_0-merror:0.00375 validation_0-mlogloss:0.14573   validation_1-merror:0.04926 validation_1-mlogloss:0.29007
+[8] validation_0-merror:0.00188 validation_0-mlogloss:0.11385   validation_1-merror:0.04926 validation_1-mlogloss:0.25384
+[9] validation_0-merror:0.00125 validation_0-mlogloss:0.08912   validation_1-merror:0.05172 validation_1-mlogloss:0.22724
+[10]    validation_0-merror:0.00125 validation_0-mlogloss:0.07097   validation_1-merror:0.04926 validation_1-mlogloss:0.20505
+[11]    validation_0-merror:0.00000 validation_0-mlogloss:0.05642   validation_1-merror:0.04433 validation_1-mlogloss:0.18941
+[12]    validation_0-merror:0.00000 validation_0-mlogloss:0.04556   validation_1-merror:0.04187 validation_1-mlogloss:0.17663
+[13]    validation_0-merror:0.00000 validation_0-mlogloss:0.03727   validation_1-merror:0.04187 validation_1-mlogloss:0.16720
+[14]    validation_0-merror:0.00000 validation_0-mlogloss:0.03082   validation_1-merror:0.04187 validation_1-mlogloss:0.16092
+[15]    validation_0-merror:0.00000 validation_0-mlogloss:0.02581   validation_1-merror:0.03941 validation_1-mlogloss:0.15553
+[16]    validation_0-merror:0.00000 validation_0-mlogloss:0.02199   validation_1-merror:0.03941 validation_1-mlogloss:0.14887
+[17]    validation_0-merror:0.00000 validation_0-mlogloss:0.01899   validation_1-merror:0.03941 validation_1-mlogloss:0.14508
+[18]    validation_0-merror:0.00000 validation_0-mlogloss:0.01656   validation_1-merror:0.03941 validation_1-mlogloss:0.14449
+[19]    validation_0-merror:0.00000 validation_0-mlogloss:0.01463   validation_1-merror:0.03941 validation_1-mlogloss:0.14215
+[20]    validation_0-merror:0.00000 validation_0-mlogloss:0.01305   validation_1-merror:0.03695 validation_1-mlogloss:0.14105
+[21]    validation_0-merror:0.00000 validation_0-mlogloss:0.01174   validation_1-merror:0.03941 validation_1-mlogloss:0.14084
+[22]    validation_0-merror:0.00000 validation_0-mlogloss:0.01067   validation_1-merror:0.03941 validation_1-mlogloss:0.14050
+[23]    validation_0-merror:0.00000 validation_0-mlogloss:0.00981   validation_1-merror:0.03941 validation_1-mlogloss:0.14013
+[24]    validation_0-merror:0.00000 validation_0-mlogloss:0.00909   validation_1-merror:0.03941 validation_1-mlogloss:0.14064
+[25]    validation_0-merror:0.00000 validation_0-mlogloss:0.00851   validation_1-merror:0.03941 validation_1-mlogloss:0.14045
+[26]    validation_0-merror:0.00000 validation_0-mlogloss:0.00804   validation_1-merror:0.03941 validation_1-mlogloss:0.14129
+[27]    validation_0-merror:0.00000 validation_0-mlogloss:0.00768   validation_1-merror:0.03941 validation_1-mlogloss:0.14126
+[28]    validation_0-merror:0.00000 validation_0-mlogloss:0.00735   validation_1-merror:0.03941 validation_1-mlogloss:0.14149
+[29]    validation_0-merror:0.00000 validation_0-mlogloss:0.00707   validation_1-merror:0.03941 validation_1-mlogloss:0.14218
+[30]    validation_0-merror:0.00000 validation_0-mlogloss:0.00686   validation_1-merror:0.03941 validation_1-mlogloss:0.14375
+[31]    validation_0-merror:0.00000 validation_0-mlogloss:0.00665   validation_1-merror:0.03941 validation_1-mlogloss:0.14360
+[32]    validation_0-merror:0.00000 validation_0-mlogloss:0.00648   validation_1-merror:0.03941 validation_1-mlogloss:0.14413</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="05_mouse_classifier_files/figure-html/cell-14-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> vae_xgboost.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>stats.append(prediction_stats(<span class="st">"XGB_scVI"</span>, vae_xgboost, y_test, y_pred, vae_df.values[:, :<span class="op">-</span><span class="dv">1</span>], vae_df[<span class="st">'target'</span>].cat.codes.to_numpy()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>vae_xgboost.save_model(<span class="st">"../results/02_mouse_integration/05_scVI_xgboost.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scanvi-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" data-anchor-id="scanvi-1"><span class="header-section-number">3.2</span> 3.2. scANVI</h3>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.load(<span class="st">"../results/02_mouse_integration/scanvi/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_mouse_integration/scanvi/model.pt already downloaded                                   </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lvae_df <span class="op">=</span> pd.DataFrame(lvae.get_normalized_expression(return_mean<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>lvae_df[<span class="st">'target'</span>] <span class="op">=</span> lvae.adata.obs.ct</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>lvae_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sox17</th>
+<th data-quarto-table-cell-role="th">ppp1r42</th>
+<th data-quarto-table-cell-role="th">arfgef1</th>
+<th data-quarto-table-cell-role="th">prdm14</th>
+<th data-quarto-table-cell-role="th">xkr9</th>
+<th data-quarto-table-cell-role="th">msc</th>
+<th data-quarto-table-cell-role="th">ube2w</th>
+<th data-quarto-table-cell-role="th">gm7654</th>
+<th data-quarto-table-cell-role="th">tmem70</th>
+<th data-quarto-table-cell-role="th">ly96</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">stn1</th>
+<th data-quarto-table-cell-role="th">gsto1</th>
+<th data-quarto-table-cell-role="th">1700054a03rik</th>
+<th data-quarto-table-cell-role="th">gm50273</th>
+<th data-quarto-table-cell-role="th">habp2</th>
+<th data-quarto-table-cell-role="th">ccdc186</th>
+<th data-quarto-table-cell-role="th">afap1l2</th>
+<th data-quarto-table-cell-role="th">pnlip</th>
+<th data-quarto-table-cell-role="th">pnliprp2</th>
+<th data-quarto-table-cell-role="th">target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259148</td>
+<td>1.499321e-08</td>
+<td>7.591232e-08</td>
+<td>0.000068</td>
+<td>0.000003</td>
+<td>0.000065</td>
+<td>0.000326</td>
+<td>0.000131</td>
+<td>1.483101e-08</td>
+<td>0.000298</td>
+<td>0.000150</td>
+<td>...</td>
+<td>0.000185</td>
+<td>0.005562</td>
+<td>8.425851e-07</td>
+<td>4.370481e-09</td>
+<td>1.569241e-09</td>
+<td>0.000072</td>
+<td>4.824862e-08</td>
+<td>1.690867e-09</td>
+<td>0.000051</td>
+<td>16C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX259191</td>
+<td>1.535953e-07</td>
+<td>3.323944e-08</td>
+<td>0.000084</td>
+<td>0.000012</td>
+<td>0.000095</td>
+<td>0.000061</td>
+<td>0.000062</td>
+<td>1.126642e-06</td>
+<td>0.000531</td>
+<td>0.000390</td>
+<td>...</td>
+<td>0.000336</td>
+<td>0.002567</td>
+<td>1.206273e-08</td>
+<td>3.697671e-08</td>
+<td>8.405232e-09</td>
+<td>0.000134</td>
+<td>1.122398e-06</td>
+<td>5.098362e-07</td>
+<td>0.000258</td>
+<td>8C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259121</td>
+<td>2.234061e-10</td>
+<td>1.818486e-07</td>
+<td>0.000059</td>
+<td>0.000002</td>
+<td>0.000023</td>
+<td>0.000644</td>
+<td>0.000123</td>
+<td>3.998329e-11</td>
+<td>0.000119</td>
+<td>0.000196</td>
+<td>...</td>
+<td>0.000069</td>
+<td>0.001645</td>
+<td>4.700184e-07</td>
+<td>2.258681e-09</td>
+<td>1.102188e-10</td>
+<td>0.000037</td>
+<td>5.974784e-09</td>
+<td>1.568855e-09</td>
+<td>0.000009</td>
+<td>16C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX259140</td>
+<td>8.150251e-08</td>
+<td>4.920110e-08</td>
+<td>0.000055</td>
+<td>0.000010</td>
+<td>0.000060</td>
+<td>0.000158</td>
+<td>0.000128</td>
+<td>1.852338e-07</td>
+<td>0.000286</td>
+<td>0.000275</td>
+<td>...</td>
+<td>0.000263</td>
+<td>0.004427</td>
+<td>1.616031e-07</td>
+<td>1.186041e-08</td>
+<td>5.657514e-09</td>
+<td>0.000073</td>
+<td>3.052841e-07</td>
+<td>3.905111e-08</td>
+<td>0.000125</td>
+<td>16C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259161</td>
+<td>2.039545e-07</td>
+<td>1.044988e-07</td>
+<td>0.000329</td>
+<td>0.000031</td>
+<td>0.000166</td>
+<td>0.000001</td>
+<td>0.000171</td>
+<td>3.242764e-05</td>
+<td>0.000807</td>
+<td>0.000285</td>
+<td>...</td>
+<td>0.000279</td>
+<td>0.000124</td>
+<td>4.134634e-10</td>
+<td>1.175266e-07</td>
+<td>7.103967e-09</td>
+<td>0.000540</td>
+<td>9.310104e-05</td>
+<td>2.019131e-06</td>
+<td>0.000002</td>
+<td>4C</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 3001 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>X_train, y_train, X_test, y_test <span class="op">=</span> train_test_split_by_group(lvae_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>lvae_xgboost <span class="op">=</span> train_xgboost(lvae_df, X_train, y_train, X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0] validation_0-merror:0.03504 validation_0-mlogloss:1.11435   validation_1-merror:0.16502 validation_1-mlogloss:1.35171
+[1] validation_0-merror:0.02566 validation_0-mlogloss:0.78891   validation_1-merror:0.12315 validation_1-mlogloss:1.04526
+[2] validation_0-merror:0.01815 validation_0-mlogloss:0.58309   validation_1-merror:0.11084 validation_1-mlogloss:0.85486
+[3] validation_0-merror:0.01314 validation_0-mlogloss:0.43796   validation_1-merror:0.09852 validation_1-mlogloss:0.72215
+[4] validation_0-merror:0.01064 validation_0-mlogloss:0.33298   validation_1-merror:0.10099 validation_1-mlogloss:0.62165
+[5] validation_0-merror:0.00688 validation_0-mlogloss:0.25603   validation_1-merror:0.09852 validation_1-mlogloss:0.54944
+[6] validation_0-merror:0.00501 validation_0-mlogloss:0.19739   validation_1-merror:0.09606 validation_1-mlogloss:0.49209
+[7] validation_0-merror:0.00250 validation_0-mlogloss:0.15305   validation_1-merror:0.09852 validation_1-mlogloss:0.44675
+[8] validation_0-merror:0.00250 validation_0-mlogloss:0.12090   validation_1-merror:0.09606 validation_1-mlogloss:0.41005
+[9] validation_0-merror:0.00188 validation_0-mlogloss:0.09542   validation_1-merror:0.09852 validation_1-mlogloss:0.38280
+[10]    validation_0-merror:0.00125 validation_0-mlogloss:0.07578   validation_1-merror:0.10099 validation_1-mlogloss:0.36633
+[11]    validation_0-merror:0.00000 validation_0-mlogloss:0.06099   validation_1-merror:0.10099 validation_1-mlogloss:0.35114
+[12]    validation_0-merror:0.00000 validation_0-mlogloss:0.04939   validation_1-merror:0.09852 validation_1-mlogloss:0.34063
+[13]    validation_0-merror:0.00000 validation_0-mlogloss:0.04041   validation_1-merror:0.10345 validation_1-mlogloss:0.33141
+[14]    validation_0-merror:0.00000 validation_0-mlogloss:0.03370   validation_1-merror:0.10099 validation_1-mlogloss:0.32415
+[15]    validation_0-merror:0.00000 validation_0-mlogloss:0.02832   validation_1-merror:0.10099 validation_1-mlogloss:0.31757
+[16]    validation_0-merror:0.00000 validation_0-mlogloss:0.02422   validation_1-merror:0.09852 validation_1-mlogloss:0.30989
+[17]    validation_0-merror:0.00000 validation_0-mlogloss:0.02089   validation_1-merror:0.09852 validation_1-mlogloss:0.30725
+[18]    validation_0-merror:0.00000 validation_0-mlogloss:0.01818   validation_1-merror:0.10099 validation_1-mlogloss:0.30426
+[19]    validation_0-merror:0.00000 validation_0-mlogloss:0.01608   validation_1-merror:0.09852 validation_1-mlogloss:0.30231
+[20]    validation_0-merror:0.00000 validation_0-mlogloss:0.01431   validation_1-merror:0.09852 validation_1-mlogloss:0.29995
+[21]    validation_0-merror:0.00000 validation_0-mlogloss:0.01292   validation_1-merror:0.09606 validation_1-mlogloss:0.29890
+[22]    validation_0-merror:0.00000 validation_0-mlogloss:0.01174   validation_1-merror:0.09852 validation_1-mlogloss:0.29805
+[23]    validation_0-merror:0.00000 validation_0-mlogloss:0.01074   validation_1-merror:0.09606 validation_1-mlogloss:0.29816
+[24]    validation_0-merror:0.00000 validation_0-mlogloss:0.00989   validation_1-merror:0.09606 validation_1-mlogloss:0.29815
+[25]    validation_0-merror:0.00000 validation_0-mlogloss:0.00927   validation_1-merror:0.09852 validation_1-mlogloss:0.29669
+[26]    validation_0-merror:0.00000 validation_0-mlogloss:0.00875   validation_1-merror:0.09852 validation_1-mlogloss:0.29431
+[27]    validation_0-merror:0.00000 validation_0-mlogloss:0.00831   validation_1-merror:0.09852 validation_1-mlogloss:0.29328
+[28]    validation_0-merror:0.00000 validation_0-mlogloss:0.00794   validation_1-merror:0.10099 validation_1-mlogloss:0.29464
+[29]    validation_0-merror:0.00000 validation_0-mlogloss:0.00760   validation_1-merror:0.09852 validation_1-mlogloss:0.29632
+[30]    validation_0-merror:0.00000 validation_0-mlogloss:0.00732   validation_1-merror:0.09852 validation_1-mlogloss:0.29805
+[31]    validation_0-merror:0.00000 validation_0-mlogloss:0.00708   validation_1-merror:0.10099 validation_1-mlogloss:0.29762
+[32]    validation_0-merror:0.00000 validation_0-mlogloss:0.00684   validation_1-merror:0.10099 validation_1-mlogloss:0.29781
+[33]    validation_0-merror:0.00000 validation_0-mlogloss:0.00666   validation_1-merror:0.10099 validation_1-mlogloss:0.29910
+[34]    validation_0-merror:0.00000 validation_0-mlogloss:0.00649   validation_1-merror:0.10099 validation_1-mlogloss:0.29847
+[35]    validation_0-merror:0.00000 validation_0-mlogloss:0.00634   validation_1-merror:0.10099 validation_1-mlogloss:0.29821
+[36]    validation_0-merror:0.00000 validation_0-mlogloss:0.00619   validation_1-merror:0.10099 validation_1-mlogloss:0.29706</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="05_mouse_classifier_files/figure-html/cell-21-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> lvae_xgboost.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>stats.append(prediction_stats(<span class="st">"XGB_scANVI"</span>, lvae_xgboost, y_test, y_pred, lvae_df.values[:, :<span class="op">-</span><span class="dv">1</span>], lvae_df[<span class="st">'target'</span>].cat.codes.to_numpy()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lvae_xgboost.save_model(<span class="st">"../results/02_mouse_integration/05_scANVI_xgboost.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scgen" class="level3" data-number="3.3">
+<h3 data-number="3.3" data-anchor-id="scgen"><span class="header-section-number">3.3</span> 3.3. scGEN</h3>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mscgen <span class="op">=</span> scgen.SCGEN.load(<span class="st">"../results/02_mouse_integration/scgen/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_mouse_integration/scgen/model.pt already downloaded                                    </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mscgen_df <span class="op">=</span> pd.DataFrame(mscgen.get_decoded_expression(), </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                         index<span class="op">=</span>mscgen.adata.obs_names, columns<span class="op">=</span>mscgen.adata.var_names)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>mscgen_df[<span class="st">'target'</span>] <span class="op">=</span> mscgen.adata.obs[<span class="st">'ct'</span>]</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>mscgen_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sox17</th>
+<th data-quarto-table-cell-role="th">ppp1r42</th>
+<th data-quarto-table-cell-role="th">arfgef1</th>
+<th data-quarto-table-cell-role="th">prdm14</th>
+<th data-quarto-table-cell-role="th">xkr9</th>
+<th data-quarto-table-cell-role="th">msc</th>
+<th data-quarto-table-cell-role="th">ube2w</th>
+<th data-quarto-table-cell-role="th">gm7654</th>
+<th data-quarto-table-cell-role="th">tmem70</th>
+<th data-quarto-table-cell-role="th">ly96</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">stn1</th>
+<th data-quarto-table-cell-role="th">gsto1</th>
+<th data-quarto-table-cell-role="th">1700054a03rik</th>
+<th data-quarto-table-cell-role="th">gm50273</th>
+<th data-quarto-table-cell-role="th">habp2</th>
+<th data-quarto-table-cell-role="th">ccdc186</th>
+<th data-quarto-table-cell-role="th">afap1l2</th>
+<th data-quarto-table-cell-role="th">pnlip</th>
+<th data-quarto-table-cell-role="th">pnliprp2</th>
+<th data-quarto-table-cell-role="th">target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259148</td>
+<td>0.129524</td>
+<td>-0.009126</td>
+<td>0.580587</td>
+<td>-0.027672</td>
+<td>0.165227</td>
+<td>0.593042</td>
+<td>0.868470</td>
+<td>-0.005957</td>
+<td>1.724664</td>
+<td>1.235015</td>
+<td>...</td>
+<td>1.047719</td>
+<td>3.994854</td>
+<td>0.026034</td>
+<td>0.019212</td>
+<td>-0.022841</td>
+<td>0.752102</td>
+<td>0.036959</td>
+<td>0.001139</td>
+<td>0.642708</td>
+<td>16C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX259191</td>
+<td>0.042759</td>
+<td>-0.009889</td>
+<td>0.608965</td>
+<td>0.035671</td>
+<td>0.257579</td>
+<td>0.512698</td>
+<td>0.708813</td>
+<td>-0.007634</td>
+<td>1.550365</td>
+<td>1.364577</td>
+<td>...</td>
+<td>1.072520</td>
+<td>3.394770</td>
+<td>0.016012</td>
+<td>0.020248</td>
+<td>-0.048329</td>
+<td>0.858443</td>
+<td>0.036058</td>
+<td>0.028643</td>
+<td>0.485618</td>
+<td>8C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259121</td>
+<td>-0.062429</td>
+<td>-0.002099</td>
+<td>0.516726</td>
+<td>-0.141183</td>
+<td>0.291033</td>
+<td>0.251529</td>
+<td>0.438559</td>
+<td>-0.008837</td>
+<td>1.417975</td>
+<td>1.416850</td>
+<td>...</td>
+<td>0.471408</td>
+<td>2.301015</td>
+<td>0.038988</td>
+<td>0.019344</td>
+<td>0.005064</td>
+<td>0.552338</td>
+<td>-0.009445</td>
+<td>-0.026622</td>
+<td>0.361133</td>
+<td>16C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SRX259140</td>
+<td>-0.067408</td>
+<td>-0.014072</td>
+<td>0.476634</td>
+<td>0.038267</td>
+<td>0.143380</td>
+<td>0.544186</td>
+<td>0.797441</td>
+<td>-0.009345</td>
+<td>1.724418</td>
+<td>1.436977</td>
+<td>...</td>
+<td>0.957134</td>
+<td>3.538107</td>
+<td>0.023010</td>
+<td>0.025978</td>
+<td>-0.022783</td>
+<td>0.754117</td>
+<td>0.064578</td>
+<td>0.004726</td>
+<td>0.577420</td>
+<td>16C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SRX259161</td>
+<td>0.009253</td>
+<td>0.033485</td>
+<td>1.305035</td>
+<td>0.533173</td>
+<td>-0.025159</td>
+<td>0.184909</td>
+<td>1.239522</td>
+<td>0.022633</td>
+<td>2.215558</td>
+<td>1.189655</td>
+<td>...</td>
+<td>1.302740</td>
+<td>1.088298</td>
+<td>0.003135</td>
+<td>0.037767</td>
+<td>0.004102</td>
+<td>1.716617</td>
+<td>0.146538</td>
+<td>0.081518</td>
+<td>0.166842</td>
+<td>4C</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 3001 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>X_train, y_train, X_test, y_test <span class="op">=</span> train_test_split_by_group(mscgen_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mscgen_xgboost <span class="op">=</span> train_xgboost(mscgen_df, X_train, y_train, X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0] validation_0-merror:0.02753 validation_0-mlogloss:1.10220   validation_1-merror:0.07882 validation_1-mlogloss:1.17242
+[1] validation_0-merror:0.01815 validation_0-mlogloss:0.77531   validation_1-merror:0.07389 validation_1-mlogloss:0.88407
+[2] validation_0-merror:0.01252 validation_0-mlogloss:0.56490   validation_1-merror:0.06650 validation_1-mlogloss:0.69409
+[3] validation_0-merror:0.00876 validation_0-mlogloss:0.42008   validation_1-merror:0.06404 validation_1-mlogloss:0.56456
+[4] validation_0-merror:0.00688 validation_0-mlogloss:0.31672   validation_1-merror:0.06158 validation_1-mlogloss:0.46782
+[5] validation_0-merror:0.00501 validation_0-mlogloss:0.24033   validation_1-merror:0.06158 validation_1-mlogloss:0.40182
+[6] validation_0-merror:0.00375 validation_0-mlogloss:0.18417   validation_1-merror:0.06404 validation_1-mlogloss:0.35392
+[7] validation_0-merror:0.00125 validation_0-mlogloss:0.14143   validation_1-merror:0.06158 validation_1-mlogloss:0.31127
+[8] validation_0-merror:0.00063 validation_0-mlogloss:0.10950   validation_1-merror:0.05911 validation_1-mlogloss:0.28430
+[9] validation_0-merror:0.00063 validation_0-mlogloss:0.08584   validation_1-merror:0.05419 validation_1-mlogloss:0.26294
+[10]    validation_0-merror:0.00000 validation_0-mlogloss:0.06750   validation_1-merror:0.05419 validation_1-mlogloss:0.24574
+[11]    validation_0-merror:0.00000 validation_0-mlogloss:0.05349   validation_1-merror:0.05419 validation_1-mlogloss:0.23149
+[12]    validation_0-merror:0.00000 validation_0-mlogloss:0.04296   validation_1-merror:0.05172 validation_1-mlogloss:0.22194
+[13]    validation_0-merror:0.00000 validation_0-mlogloss:0.03500   validation_1-merror:0.05419 validation_1-mlogloss:0.21303
+[14]    validation_0-merror:0.00000 validation_0-mlogloss:0.02891   validation_1-merror:0.05172 validation_1-mlogloss:0.20760
+[15]    validation_0-merror:0.00000 validation_0-mlogloss:0.02419   validation_1-merror:0.05172 validation_1-mlogloss:0.20254
+[16]    validation_0-merror:0.00000 validation_0-mlogloss:0.02050   validation_1-merror:0.05419 validation_1-mlogloss:0.20035
+[17]    validation_0-merror:0.00000 validation_0-mlogloss:0.01761   validation_1-merror:0.05419 validation_1-mlogloss:0.19680
+[18]    validation_0-merror:0.00000 validation_0-mlogloss:0.01529   validation_1-merror:0.05419 validation_1-mlogloss:0.19592
+[19]    validation_0-merror:0.00000 validation_0-mlogloss:0.01347   validation_1-merror:0.05419 validation_1-mlogloss:0.19497
+[20]    validation_0-merror:0.00000 validation_0-mlogloss:0.01202   validation_1-merror:0.05419 validation_1-mlogloss:0.19207
+[21]    validation_0-merror:0.00000 validation_0-mlogloss:0.01080   validation_1-merror:0.05419 validation_1-mlogloss:0.19109
+[22]    validation_0-merror:0.00000 validation_0-mlogloss:0.00985   validation_1-merror:0.05419 validation_1-mlogloss:0.19257
+[23]    validation_0-merror:0.00000 validation_0-mlogloss:0.00908   validation_1-merror:0.05419 validation_1-mlogloss:0.19313
+[24]    validation_0-merror:0.00000 validation_0-mlogloss:0.00847   validation_1-merror:0.05419 validation_1-mlogloss:0.19265
+[25]    validation_0-merror:0.00000 validation_0-mlogloss:0.00794   validation_1-merror:0.05419 validation_1-mlogloss:0.19297
+[26]    validation_0-merror:0.00000 validation_0-mlogloss:0.00753   validation_1-merror:0.05419 validation_1-mlogloss:0.19289
+[27]    validation_0-merror:0.00000 validation_0-mlogloss:0.00718   validation_1-merror:0.05419 validation_1-mlogloss:0.19182
+[28]    validation_0-merror:0.00000 validation_0-mlogloss:0.00689   validation_1-merror:0.05419 validation_1-mlogloss:0.19347
+[29]    validation_0-merror:0.00000 validation_0-mlogloss:0.00664   validation_1-merror:0.05419 validation_1-mlogloss:0.19384
+[30]    validation_0-merror:0.00000 validation_0-mlogloss:0.00646   validation_1-merror:0.05419 validation_1-mlogloss:0.19353</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="05_mouse_classifier_files/figure-html/cell-28-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>stats.append(prediction_stats(<span class="st">"XGB_scGEN"</span>, mscgen_xgboost, y_test, y_pred, mscgen_df.values[:, :<span class="op">-</span><span class="dv">1</span>], mscgen_df[<span class="st">'target'</span>].cat.codes.to_numpy()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mscgen_xgboost.save_model(<span class="st">"../results/02_mouse_integration/05_scGEN_xgboost.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2" data-number="4">
+<h2 data-number="4" data-anchor-id="summary"><span class="header-section-number">4</span> 4. Summary</h2>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>stats_df <span class="op">=</span> pd.DataFrame(stats, columns<span class="op">=</span>[<span class="st">'method'</span>, <span class="st">'accuracy'</span>, <span class="st">'balanced_accuracy'</span>, <span class="st">'f1_micro'</span>, <span class="st">'f1_macro'</span>, <span class="st">'cv_accuracy'</span>]).set_index(<span class="st">'method'</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>stats_df.to_csv(<span class="st">"../results/05_mouse_classifier_stats.csv"</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>stats_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">balanced_accuracy</th>
+<th data-quarto-table-cell-role="th">f1_micro</th>
+<th data-quarto-table-cell-role="th">f1_macro</th>
+<th data-quarto-table-cell-role="th">cv_accuracy</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">method</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">scANVI</td>
+<td>0.830339</td>
+<td>0.649818</td>
+<td>0.830339</td>
+<td>0.634290</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">scANVI_ns15</td>
+<td>0.793413</td>
+<td>0.879503</td>
+<td>0.793413</td>
+<td>0.777624</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">XGB_scVI</td>
+<td>0.960591</td>
+<td>0.963041</td>
+<td>0.960591</td>
+<td>0.967656</td>
+<td>0.935637</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">XGB_scANVI</td>
+<td>0.901478</td>
+<td>0.917235</td>
+<td>0.901478</td>
+<td>0.923392</td>
+<td>0.920664</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">XGB_scGEN</td>
+<td>0.901478</td>
+<td>0.917235</td>
+<td>0.901478</td>
+<td>0.923392</td>
+<td>0.942602</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>stats_df.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.gca().spines[[<span class="st">'right'</span>, <span class="st">'top'</span>]].set_visible(<span class="va">False</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>plt.gca().legend(title<span class="op">=</span><span class="st">'Metrics'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.99</span>, <span class="fl">1.02</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f01bfb91390&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="05_mouse_classifier_files/figure-html/cell-32-output-2.png"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

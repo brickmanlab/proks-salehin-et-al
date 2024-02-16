@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.302">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Martin Proks">
+<meta name="dcterms.date" content="2025-02-08">
+
+<title>proks-salehin-et-al-2023 - 02 - human integration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/00_figures_common.html">Reports</a></li><li class="breadcrumb-item"><a href="../notebooks/02_human_integration.html">02 - human integration</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">proks-salehin-et-al-2023</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://twitter.com/LabBrickman" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/brickmanlab" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">proks-salehin-et-al</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Reports</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_common.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures (common)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human-invitro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [mouse]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_integration.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">02 - human integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_human_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - human analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_mouse_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - mouse analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_human_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Human CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_mouse_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 - CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_human_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Re-annotation and classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier_accuracy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier accuracy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_human_query_Rivron_SRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rivron blastoids cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_mouse_query.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 - mouse query</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/08_shap_explainers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SHAP explainers for SCANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/09_classification_explanation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 - Classification explanation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/10_mouse_beyond_celltypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_human_query_Smith.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Austin Smith paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_xgboost_vs_scanvi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 - XGBoost vs scANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/12_upload_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload AI models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#scvi" id="toc-scvi" class="nav-link active" data-scroll-target="#scvi"><span class="header-section-number">1</span> 1. SCVI</a></li>
+  <li><a href="#scanvi" id="toc-scanvi" class="nav-link" data-scroll-target="#scanvi"><span class="header-section-number">2</span> 2. SCANVI</a></li>
+  <li><a href="#scgen" id="toc-scgen" class="nav-link" data-scroll-target="#scgen"><span class="header-section-number">3</span> 3. scGEN</a></li>
+  <li><a href="#stats" id="toc-stats" class="nav-link" data-scroll-target="#stats"><span class="header-section-number">4</span> 4. Stats</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">02 - human integration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Martin Proks </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 8, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>which pip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>~/projects/data/Brickman/conda/envs/scvi-1.0.0/bin/pip</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scvi</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scanpy <span class="im">as</span> sc</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rich <span class="im">import</span> <span class="bu">print</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scib_metrics.benchmark <span class="im">import</span> Benchmarker</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scvi.model.utils <span class="im">import</span> mde</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lightning_fabric.plugins.environments.slurm <span class="im">import</span> PossibleUserWarning</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(action<span class="op">=</span><span class="st">'ignore'</span>, category<span class="op">=</span>PossibleUserWarning)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(action<span class="op">=</span><span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">UserWarning</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(action<span class="op">=</span><span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>scvi.settings.seed <span class="op">=</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/scvi/_settings.py:63: UserWarning: Since v1.0.0, scvi-tools no longer uses a random seed by default. Run `scvi.settings.seed = 0` to reproduce results from previous versions.
+  self.seed = seed
+/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/scvi/_settings.py:70: UserWarning: Setting `dl_pin_memory_gpu_training` is deprecated in v1.0 and will be removed in v1.1. Please pass in `pin_memory` to the data loaders instead.
+  self.dl_pin_memory_gpu_training = (
+/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+[rank: 0] Global seed set to 42</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sc.set_figure_params(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.print_figure_kwargs<span class="op">=</span>{<span class="st">'facecolor'</span> : <span class="st">"w"</span>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format<span class="op">=</span><span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'svg.fonttype'</span>] <span class="op">=</span> <span class="st">'none'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> sc.read(<span class="st">"../data/processed/32_human_adata.h5ad"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>adata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>AnnData object with n_obs × n_vars = 2323 × 62754
+    obs: 'day', 'ct', 'experiment', 'technology', 'n_counts', 'n_genes', 'ct_fine'
+    layers: 'counts'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>adata.obs.experiment <span class="op">=</span> adata.obs.experiment.<span class="bu">str</span>.replace(<span class="st">'_'</span>, <span class="st">' et al., '</span>).astype(<span class="st">'category'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'batch'</span>] <span class="op">=</span> adata.obs.experiment</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'stage'</span>] <span class="op">=</span> adata.obs.ct.cat.rename_categories({</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Epiblast'</span>: <span class="st">'EPI'</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Inner Cell Mass'</span>: <span class="st">'ICM'</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Primitive Endoderm'</span>: <span class="st">'PrE'</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Trophectoderm'</span>: <span class="st">'TE'</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>}).cat.reorder_categories([<span class="st">'Oocyte'</span>, <span class="st">'Pronucleus'</span>, <span class="st">'Zygote'</span>, <span class="st">'2C'</span>, <span class="st">'4C'</span>, <span class="st">'8C'</span>, <span class="st">'Morula'</span>, <span class="st">'TE'</span>, <span class="st">'ICM'</span>, <span class="st">'EPI'</span>, <span class="st">'PrE'</span>, <span class="st">'Unknown'</span>])</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'timepoint'</span>] <span class="op">=</span> adata.obs.ct.astype(<span class="bu">str</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>timepoint_mask <span class="op">=</span> adata.obs.ct.isin([<span class="st">'Unknown'</span>, <span class="st">'Trophectoderm'</span>, <span class="st">'Inner Cell Mass'</span>, <span class="st">'Primitive Endoderm'</span>, <span class="st">'Epiblast'</span>])</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>adata.obs.loc[timepoint_mask, <span class="st">'timepoint'</span>] <span class="op">=</span> <span class="st">'E'</span> <span class="op">+</span> adata.obs.loc[timepoint_mask, <span class="st">'day'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>adata.obs.ct <span class="op">=</span> adata.obs.ct.astype(<span class="st">'category'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'ct_orig'</span>] <span class="op">=</span> adata.obs.ct</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>adata.obs.ct <span class="op">=</span> adata.obs.ct_fine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ENSG_to_SYMBOL <span class="op">=</span> pd.read_csv(<span class="st">'../data/external/human/Homo_sapiens.GRCh38.110.ENSG_to_SYMBOL.tsv'</span>, delimiter<span class="op">=</span><span class="st">" "</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ENSG_to_SYMBOL.columns <span class="op">=</span> [<span class="st">'ensembl'</span>,<span class="st">'symbol'</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ENSG_to_SYMBOL_noName <span class="op">=</span> pd.read_csv(<span class="st">'../data/external/human/Homo_sapiens.GRCh38.110.ENSG_to_SYMBOL_noName.tsv'</span>, delimiter<span class="op">=</span><span class="st">" "</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>nameless_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'ensembl'</span> : <span class="bu">list</span>(<span class="bu">set</span>(ENSG_to_SYMBOL_noName[<span class="dv">0</span>].tolist()) <span class="op">-</span> <span class="bu">set</span>(ENSG_to_SYMBOL.ensembl.tolist())),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'symbol'</span> : <span class="bu">list</span>(<span class="bu">set</span>(ENSG_to_SYMBOL_noName[<span class="dv">0</span>].tolist()) <span class="op">-</span> <span class="bu">set</span>(ENSG_to_SYMBOL.ensembl.tolist())),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ENSG_to_SYMBOL <span class="op">=</span> pd.concat([ENSG_to_SYMBOL, nameless_df])</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ENSG_to_SYMBOL.set_index(<span class="st">'ensembl'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>adata.var[<span class="st">'symbol'</span>] <span class="op">=</span> ENSG_to_SYMBOL.loc[adata.var_names, <span class="st">'symbol'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove mitochondrial genes</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[:, adata.var[<span class="op">~</span>adata.var.symbol.<span class="bu">str</span>.startswith(<span class="st">'MT-'</span>)].index].copy()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove ribosomal genes</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[:, adata.var[<span class="op">~</span>adata.var.symbol.<span class="bu">str</span>.startswith((<span class="st">'RPS'</span>, <span class="st">'RPL'</span>))].index].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sc.pl.highest_expr_genes(adata, n_top=20)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adata.uns['log1p']["base"] = None</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sc.pp.highly_variable_genes(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    adata,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    flavor<span class="op">=</span><span class="st">"cell_ranger"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    n_top_genes<span class="op">=</span><span class="dv">3_000</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    batch_key<span class="op">=</span><span class="st">"batch"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    subset<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>adata.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>(2323, 3000)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sc.pp.highly_variable_genes(</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     adata,</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     flavor="seurat_v3",</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     n_top_genes=3_000,</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     layer="counts",</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     batch_key="batch",</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     subset=True,</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># adata.shape</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="scvi" class="level2" data-number="1">
+<h2 data-number="1" data-anchor-id="scvi"><span class="header-section-number">1</span> 1. SCVI</h2>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jax</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>jax.devices()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>[gpu(id=0), gpu(id=1), gpu(id=2), gpu(id=3)]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>scvi.model.SCVI.setup_anndata(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    adata, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    layer<span class="op">=</span><span class="st">"counts"</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    batch_key<span class="op">=</span><span class="st">"batch"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>vae <span class="op">=</span> scvi.model.SCVI(adata, n_layers<span class="op">=</span><span class="dv">2</span>, gene_likelihood<span class="op">=</span><span class="st">'nb'</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>vae</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SCVI Model with the following params: 
+n_hidden: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, n_latent: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>, n_layers: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, dropout_rate: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>, dispersion: gene, gene_likelihood: nb, 
+latent_distribution: normal
+Training status: Not Trained
+Model's adata is minified?: <span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span>
+</pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code></code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>vae.train(use_gpu<span class="op">=</span><span class="dv">1</span>, max_epochs<span class="op">=</span><span class="dv">400</span>, early_stopping<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+`Trainer.fit` stopped: `max_epochs=400` reached.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 400/400: 100%|██████████████| 400/400 [00:58&lt;00:00,  6.87it/s, v_num=1, train_loss_step=6.95e+3, train_loss_epoch=6.45e+3]Epoch 400/400: 100%|██████████████| 400/400 [00:58&lt;00:00,  6.83it/s, v_num=1, train_loss_step=6.95e+3, train_loss_epoch=6.45e+3]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pd.concat([vae.history[<span class="st">'elbo_train'</span>], vae.history[<span class="st">'elbo_validation'</span>]], axis<span class="op">=</span><span class="dv">1</span>).plot.line(marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>&lt;Axes: xlabel='epoch'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-18-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fig, ax = plt.subplots(1, 12, figsize=[25, 4])</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for idx, key in enumerate(vae.history.keys()):</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     vae.history[key].plot(title=key, ax=ax[idx])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_scVI"</span>] <span class="op">=</span> vae.get_latent_representation(adata)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_mde_scVI"</span>] <span class="op">=</span> mde(adata.obsm[<span class="st">"X_scVI"</span>])</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>adata.layers[<span class="st">'scVI_normalized'</span>] <span class="op">=</span> vae.get_normalized_expression(return_numpy<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>vae.save(<span class="st">"../results/02_human_integration/scvi"</span>, overwrite<span class="op">=</span><span class="va">True</span>, save_anndata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scanvi" class="level2" data-number="2">
+<h2 data-number="2" data-anchor-id="scanvi"><span class="header-section-number">2</span> 2. SCANVI</h2>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.from_scvi_model(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    vae,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    adata<span class="op">=</span>adata,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    labels_key<span class="op">=</span><span class="st">"ct"</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    unlabeled_category<span class="op">=</span><span class="st">"Unknown"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>lvae</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">ScanVI Model with the following params: 
+unlabeled_category: Unknown, n_hidden: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, n_latent: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>, n_layers: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, dropout_rate: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>, dispersion: gene, 
+gene_likelihood: nb
+Training status: Not Trained
+Model's adata is minified?: <span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span>
+</pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code></code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>max_epochs_scanvi <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">min</span>([<span class="dv">10</span>, np.<span class="bu">max</span>([<span class="dv">2</span>, <span class="bu">round</span>(<span class="dv">200</span> <span class="op">/</span> <span class="fl">3.0</span>)])]))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(max_epochs_scanvi)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>lvae.train(max_epochs<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>
+</pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Training for 15 epochs.                                                                                   
+Epoch 15/15: 100%|███████████████████| 15/15 [00:05&lt;00:00,  2.91it/s, v_num=1, train_loss_step=6.7e+3, train_loss_epoch=6.53e+3]Epoch 15/15: 100%|███████████████████| 15/15 [00:05&lt;00:00,  2.74it/s, v_num=1, train_loss_step=6.7e+3, train_loss_epoch=6.53e+3]</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+`Trainer.fit` stopped: `max_epochs=15` reached.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fig, ax = plt.subplots(3, 3, figsize=[20, 14])</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for idx, key in enumerate(lvae.history.keys()):</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     lvae.history[key].plot(title=key, ax=ax[idx // 3 , idx % 3])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_scANVI"</span>] <span class="op">=</span> lvae.get_latent_representation(adata)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_mde_scANVI"</span>] <span class="op">=</span> mde(adata.obsm[<span class="st">"X_scANVI"</span>])</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>adata.layers[<span class="st">'scANVI_normalized'</span>] <span class="op">=</span> lvae.get_normalized_expression(return_numpy<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>lvae.save(<span class="st">"../results/02_human_integration/scanvi"</span>, overwrite<span class="op">=</span><span class="va">True</span>, save_anndata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scgen" class="level2" data-number="3">
+<h2 data-number="3" data-anchor-id="scgen"><span class="header-section-number">3</span> 3. scGEN</h2>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scgen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>scgen.SCGEN.setup_anndata(adata, batch_key<span class="op">=</span><span class="st">"batch"</span>, labels_key<span class="op">=</span><span class="st">"ct"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mscgen <span class="op">=</span> scgen.SCGEN(adata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>mscgen.train(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    max_epochs<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    batch_size<span class="op">=</span><span class="dv">32</span>,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    early_stopping<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    early_stopping_patience<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 29/100:  29%|██████▉                 | 29/100 [00:13&lt;00:33,  2.10it/s, v_num=1, train_loss_step=50.1, train_loss_epoch=45]
+Monitored metric elbo_validation did not improve in the last 20 records. Best score: 698.829. Signaling Trainer to stop.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pd.concat([mscgen.history[<span class="st">'elbo_train'</span>], mscgen.history[<span class="st">'elbo_validation'</span>]], axis<span class="op">=</span><span class="dv">1</span>).plot.line(marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>&lt;Axes: xlabel='epoch'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-31-output-2.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_scgen"</span>] <span class="op">=</span> mscgen.batch_removal().obsm[<span class="st">'corrected_latent'</span>]</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_mde_scgen"</span>] <span class="op">=</span> mde(adata.obsm[<span class="st">"X_scgen"</span>])</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>adata.layers[<span class="st">'scgen_decoded_expr'</span>] <span class="op">=</span> mscgen.get_decoded_expression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Input AnnData not setup with scvi-tools. attempting to transfer AnnData setup                             </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mscgen.save(<span class="st">"../results/02_human_integration/scgen"</span>, overwrite<span class="op">=</span><span class="va">True</span>, save_anndata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="stats" class="level2" data-number="4">
+<h2 data-number="4" data-anchor-id="stats"><span class="header-section-number">4</span> 4. Stats</h2>
+<div class="cell" data-scrolled="true" data-tags="[]" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>bm <span class="op">=</span> Benchmarker(</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    adata,</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    batch_key<span class="op">=</span><span class="st">"batch"</span>,</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    label_key<span class="op">=</span><span class="st">"ct"</span>,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    embedding_obsm_keys<span class="op">=</span>[<span class="st">"X_pca"</span>, <span class="st">"X_scVI"</span>, <span class="st">"X_scANVI"</span>, <span class="st">"X_scgen"</span>],</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span>,</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>bm.benchmark()</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>bm.plot_results_table(min_max_scale<span class="op">=</span><span class="va">False</span>, save_dir<span class="op">=</span><span class="st">'../results/02_human_integration/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing neighbors:   0%|                                                                                | 0/4 [00:00&lt;?, ?it/s]/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/umap/distances.py:1063: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/umap/distances.py:1071: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/umap/distances.py:1086: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+/home/fdb589/projects/data/Brickman/conda/envs/scvi-1.0.0/lib/python3.10/site-packages/umap/umap_.py:660: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+2023-12-05 19:57:29.572687: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Computing neighbors: 100%|████████████████████████████████████████████████████████████████████████| 4/4 [00:49&lt;00:00, 12.37s/it]
+Embeddings:   0%|                                                                                         | 0/4 [00:00&lt;?, ?it/s]
+Metrics:   0%|                                                                                           | 0/10 [00:00&lt;?, ?it/s]
+Metrics:   0%|                                                        | 0/10 [00:00&lt;?, ?it/s, Bio conservation: isolated_labels]
+Metrics:  10%|████▊                                           | 1/10 [00:02&lt;00:20,  2.30s/it, Bio conservation: isolated_labels]
+Metrics:  10%|███▍                              | 1/10 [00:02&lt;00:20,  2.30s/it, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|██████▊                           | 2/10 [00:05&lt;00:21,  2.64s/it, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|█████████▍                                     | 2/10 [00:05&lt;00:21,  2.64s/it, Bio conservation: silhouette_label]
+Metrics:  30%|██████████████                                 | 3/10 [00:05&lt;00:12,  1.76s/it, Bio conservation: silhouette_label]
+Metrics:  30%|████████████████▏                                     | 3/10 [00:05&lt;00:12,  1.76s/it, Bio conservation: clisi_knn]
+Metrics:  40%|█████████████████████▌                                | 4/10 [00:07&lt;00:10,  1.67s/it, Bio conservation: clisi_knn]
+Metrics:  40%|██████████████████▊                            | 4/10 [00:07&lt;00:10,  1.67s/it, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████▌                       | 5/10 [00:20&lt;00:28,  5.77s/it, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████████                           | 5/10 [00:20&lt;00:28,  5.77s/it, Batch correction: ilisi_knn]
+Metrics:  60%|████████████████████████████████▍                     | 6/10 [00:20&lt;00:15,  3.91s/it, Batch correction: ilisi_knn]
+Metrics:  60%|█████████████████████████████▍                   | 6/10 [00:20&lt;00:15,  3.91s/it, Batch correction: kbet_per_label]
+Metrics:  70%|██████████████████████████████████▎              | 7/10 [00:29&lt;00:16,  5.43s/it, Batch correction: kbet_per_label]
+Metrics:  70%|███████████████████████████████▍             | 7/10 [00:29&lt;00:16,  5.43s/it, Batch correction: graph_connectivity]
+Metrics:  80%|███████████████████████████████████████▏         | 8/10 [00:29&lt;00:10,  5.43s/it, Batch correction: pcr_comparison]
+Embeddings:  25%|████████████████████▎                                                            | 1/4 [00:30&lt;01:31, 30.54s/it]
+Metrics:   0%|                                                                                           | 0/10 [00:00&lt;?, ?it/s]
+                                                                                                                                
+Metrics:   0%|                                                        | 0/10 [00:00&lt;?, ?it/s, Bio conservation: isolated_labels]
+Metrics:  10%|████▊                                           | 1/10 [00:00&lt;00:01,  4.56it/s, Bio conservation: isolated_labels]
+Metrics:  10%|███▍                              | 1/10 [00:00&lt;00:01,  4.56it/s, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|██████▊                           | 2/10 [00:02&lt;00:11,  1.46s/it, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|█████████▍                                     | 2/10 [00:02&lt;00:11,  1.46s/it, Bio conservation: silhouette_label]
+Metrics:  30%|████████████████▏                                     | 3/10 [00:02&lt;00:10,  1.46s/it, Bio conservation: clisi_knn]
+Metrics:  40%|██████████████████▊                            | 4/10 [00:02&lt;00:08,  1.46s/it, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████▌                       | 5/10 [00:03&lt;00:03,  1.45it/s, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████████                           | 5/10 [00:03&lt;00:03,  1.45it/s, Batch correction: ilisi_knn]
+Metrics:  60%|█████████████████████████████▍                   | 6/10 [00:03&lt;00:02,  1.45it/s, Batch correction: kbet_per_label]
+Metrics:  70%|██████████████████████████████████▎              | 7/10 [00:05&lt;00:02,  1.25it/s, Batch correction: kbet_per_label]
+Metrics:  70%|███████████████████████████████▍             | 7/10 [00:05&lt;00:02,  1.25it/s, Batch correction: graph_connectivity]
+Metrics:  80%|███████████████████████████████████████▏         | 8/10 [00:05&lt;00:01,  1.25it/s, Batch correction: pcr_comparison]
+Embeddings:  50%|████████████████████████████████████████▌                                        | 2/4 [00:36&lt;00:32, 16.34s/it]
+Metrics:   0%|                                                                                           | 0/10 [00:00&lt;?, ?it/s]
+                                                                                                                                
+Metrics:   0%|                                                        | 0/10 [00:00&lt;?, ?it/s, Bio conservation: isolated_labels]
+Metrics:  10%|███▍                              | 1/10 [00:00&lt;00:00, 17.03it/s, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|██████▊                           | 2/10 [00:01&lt;00:05,  1.38it/s, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|█████████▍                                     | 2/10 [00:01&lt;00:05,  1.38it/s, Bio conservation: silhouette_label]
+Metrics:  30%|████████████████▏                                     | 3/10 [00:01&lt;00:05,  1.38it/s, Bio conservation: clisi_knn]
+Metrics:  40%|██████████████████▊                            | 4/10 [00:01&lt;00:04,  1.38it/s, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████▌                       | 5/10 [00:01&lt;00:01,  3.86it/s, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████████                           | 5/10 [00:01&lt;00:01,  3.86it/s, Batch correction: ilisi_knn]
+Metrics:  60%|█████████████████████████████▍                   | 6/10 [00:01&lt;00:01,  3.86it/s, Batch correction: kbet_per_label]
+Metrics:  70%|██████████████████████████████████▎              | 7/10 [00:03&lt;00:01,  1.87it/s, Batch correction: kbet_per_label]
+Metrics:  70%|███████████████████████████████▍             | 7/10 [00:03&lt;00:01,  1.87it/s, Batch correction: graph_connectivity]
+Embeddings:  75%|████████████████████████████████████████████████████████████▊                    | 3/4 [00:40&lt;00:10, 10.49s/it]
+Metrics:   0%|                                                                                           | 0/10 [00:00&lt;?, ?it/s]
+                                                                                                                                
+Metrics:   0%|                                                        | 0/10 [00:00&lt;?, ?it/s, Bio conservation: isolated_labels]
+Metrics:  10%|████▊                                           | 1/10 [00:00&lt;00:02,  4.01it/s, Bio conservation: isolated_labels]
+Metrics:  10%|███▍                              | 1/10 [00:00&lt;00:02,  4.01it/s, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|██████▊                           | 2/10 [00:02&lt;00:11,  1.45s/it, Bio conservation: nmi_ari_cluster_labels_kmeans]
+Metrics:  20%|█████████▍                                     | 2/10 [00:02&lt;00:11,  1.45s/it, Bio conservation: silhouette_label]
+Metrics:  30%|████████████████▏                                     | 3/10 [00:02&lt;00:10,  1.45s/it, Bio conservation: clisi_knn]
+Metrics:  40%|██████████████████▊                            | 4/10 [00:02&lt;00:08,  1.45s/it, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████▌                       | 5/10 [00:03&lt;00:03,  1.40it/s, Batch correction: silhouette_batch]
+Metrics:  50%|███████████████████████████                           | 5/10 [00:03&lt;00:03,  1.40it/s, Batch correction: ilisi_knn]
+Metrics:  60%|█████████████████████████████▍                   | 6/10 [00:03&lt;00:02,  1.40it/s, Batch correction: kbet_per_label]
+Metrics:  70%|██████████████████████████████████▎              | 7/10 [00:04&lt;00:01,  1.54it/s, Batch correction: kbet_per_label]
+Metrics:  70%|███████████████████████████████▍             | 7/10 [00:04&lt;00:01,  1.54it/s, Batch correction: graph_connectivity]
+Metrics:  80%|███████████████████████████████████████▏         | 8/10 [00:04&lt;00:01,  1.54it/s, Batch correction: pcr_comparison]
+Embeddings: 100%|█████████████████████████████████████████████████████████████████████████████████| 4/4 [00:46&lt;00:00, 11.55s/it]
+
+                                                                                                                                </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     Late epiblast consists of a single batch or is too small. Skip.                                           
+INFO     Trophectoderm_10.0 consists of a single batch or is too small. Skip.                                      
+INFO     Trophectoderm_8.0 consists of a single batch or is too small. Skip.                                       
+INFO     Trophectoderm_9.0 consists of a single batch or is too small. Skip.                                       
+INFO     Late epiblast consists of a single batch or is too small. Skip.                                           
+INFO     Trophectoderm_10.0 consists of a single batch or is too small. Skip.                                      
+INFO     Trophectoderm_8.0 consists of a single batch or is too small. Skip.                                       
+INFO     Trophectoderm_9.0 consists of a single batch or is too small. Skip.                                       
+INFO     Late epiblast consists of a single batch or is too small. Skip.                                           
+INFO     Trophectoderm_10.0 consists of a single batch or is too small. Skip.                                      
+INFO     Trophectoderm_8.0 consists of a single batch or is too small. Skip.                                       
+INFO     Trophectoderm_9.0 consists of a single batch or is too small. Skip.                                       
+INFO     Late epiblast consists of a single batch or is too small. Skip.                                           
+INFO     Trophectoderm_10.0 consists of a single batch or is too small. Skip.                                      
+INFO     Trophectoderm_8.0 consists of a single batch or is too small. Skip.                                       
+INFO     Trophectoderm_9.0 consists of a single batch or is too small. Skip.                                       </code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-34-output-3.png"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>&lt;plottable.table.Table at 0x7f5f707142e0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>sc.pl.pca(adata, color<span class="op">=</span>[<span class="st">'ct'</span>, <span class="st">'stage'</span>])</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>sc.pl.embedding(adata, color<span class="op">=</span>[<span class="st">'ct'</span>, <span class="st">'stage'</span>], basis<span class="op">=</span><span class="st">'X_mde_scVI'</span>)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>sc.pl.embedding(adata, color<span class="op">=</span>[<span class="st">'ct'</span>, <span class="st">'stage'</span>], basis<span class="op">=</span><span class="st">'X_mde_scANVI'</span>)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>sc.pl.embedding(adata, color<span class="op">=</span>[<span class="st">'ct'</span>, <span class="st">'stage'</span>], basis<span class="op">=</span><span class="st">'X_mde_scgen'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-35-output-1.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-35-output-2.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-35-output-3.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_human_integration_files/figure-html/cell-35-output-4.png"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

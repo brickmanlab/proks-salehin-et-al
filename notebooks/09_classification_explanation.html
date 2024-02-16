@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.302">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Martin Proks">
+<meta name="dcterms.date" content="2023-12-12">
+
+<title>proks-salehin-et-al-2023 - 09 - Classification explanation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/00_figures_common.html">Reports</a></li><li class="breadcrumb-item"><a href="../notebooks/09_classification_explanation.html">09 - Classification explanation</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">proks-salehin-et-al-2023</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://twitter.com/LabBrickman" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/brickmanlab" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">proks-salehin-et-al</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Reports</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_common.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures (common)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_figures_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 - Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_human-invitro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [human]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_fetchngs_mouse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - NGS collection [mouse]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_human_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - human tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_mouse_tunning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 - mouse tunning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_human_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - human analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_mouse_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 - mouse analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_human_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Human CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_mouse_cellrank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 - CellRank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_human_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Re-annotation and classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_mouse_classifier_accuracy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier accuracy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_human_query_Rivron_SRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rivron blastoids cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/06_mouse_query.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 - mouse query</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/08_shap_explainers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SHAP explainers for SCANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/09_classification_explanation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">09 - Classification explanation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/10_mouse_beyond_celltypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 - mouse classifier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_human_query_Smith.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Austin Smith paper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/11_xgboost_vs_scanvi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 - XGBoost vs scANVI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/12_upload_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload AI models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#scanvi" id="toc-scanvi" class="nav-link active" data-scroll-target="#scanvi"><span class="header-section-number">1</span> 1. scANVI</a></li>
+  <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost"><span class="header-section-number">2</span> 2. XGBoost</a>
+  <ul class="collapse">
+  <li><a href="#scvi" id="toc-scvi" class="nav-link" data-scroll-target="#scvi"><span class="header-section-number">2.1</span> 2.1. scVI</a></li>
+  <li><a href="#scanvi-1" id="toc-scanvi-1" class="nav-link" data-scroll-target="#scanvi-1"><span class="header-section-number">2.2</span> 2.2. scANVI</a></li>
+  <li><a href="#scgen" id="toc-scgen" class="nav-link" data-scroll-target="#scgen"><span class="header-section-number">2.3</span> 2.3. scGEN</a></li>
+  </ul></li>
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons"><span class="header-section-number">3</span> Comparisons</a>
+  <ul class="collapse">
+  <li><a href="#xgboost-upset-plots" id="toc-xgboost-upset-plots" class="nav-link" data-scroll-target="#xgboost-upset-plots"><span class="header-section-number">3.1</span> 3.1. XGBoost UpSet plots</a></li>
+  <li><a href="#scanvi-2" id="toc-scanvi-2" class="nav-link" data-scroll-target="#scanvi-2"><span class="header-section-number">3.2</span> 3.2. scANVI</a></li>
+  <li><a href="#x.-xgboost-plotting-trees" id="toc-x.-xgboost-plotting-trees" class="nav-link" data-scroll-target="#x.-xgboost-plotting-trees"><span class="header-section-number">3.3</span> 3.x. XGBoost plotting trees</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">09 - Classification explanation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Martin Proks </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 12, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Looks like all the classifiers have their own internal genes for prediction.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">'CUDA_VISIBLE_DEVICES'</span>] <span class="op">=</span> <span class="st">'1,2'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba.core.errors <span class="im">import</span> NumbaDeprecationWarning, NumbaPendingDeprecationWarning</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span>NumbaDeprecationWarning)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span>NumbaPendingDeprecationWarning)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>, category<span class="op">=</span><span class="pp">UserWarning</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> anndata</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scvi</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scgen</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm.notebook <span class="im">import</span> tqdm</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> upsetplot <span class="im">import</span> UpSet, from_contents, plot</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_venn <span class="im">import</span> venn3</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>scvi.settings.seed <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_test_group_split(adata: anndata.AnnData, groupby: <span class="bu">str</span>):</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    Function to split anndata object 80/20 per group in format</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">    required for SCANVIDeep explainer.</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> torch</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> adata.obs.groupby(groupby)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    train, test <span class="op">=</span> [], []</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _, cells <span class="kw">in</span> groups.groups.items():</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        train_test <span class="op">=</span> train_test_split(cells.values, test_size<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        train.append(train_test[<span class="dv">0</span>])</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        test.append(train_test[<span class="dv">1</span>])</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    train, test <span class="op">=</span> np.concatenate(train), np.concatenate(test)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    X_train <span class="op">=</span> {</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">'X'</span>: torch.from_numpy(adata[train].layers[<span class="st">'counts'</span>].A).<span class="bu">type</span>(torch.DoubleTensor),</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">'batch'</span>: torch.from_numpy(adata[train].obs.batch.cat.codes.values[:, np.newaxis]),</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">'labels'</span>: torch.from_numpy(adata[train].obs.ct.cat.codes.values[:, np.newaxis])</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    X_test <span class="op">=</span> {</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">'X'</span>: torch.from_numpy(adata[test].layers[<span class="st">'counts'</span>].A).<span class="bu">type</span>(torch.DoubleTensor),</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        <span class="st">'batch'</span>: torch.from_numpy(adata[test].obs.batch.cat.codes.values[:, np.newaxis]),</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        <span class="st">'labels'</span>: torch.from_numpy(adata[test].obs.ct.cat.codes.values[:, np.newaxis])</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> train, X_train, test, X_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[rank: 0] Global seed set to 0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run ..<span class="op">/</span>scripts<span class="op">/</span>deep_scanvi.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mouse <span class="op">=</span> anndata.read_h5ad(<span class="st">"../results/03_mouse.processed.h5ad"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>background_idx, background, test_idx, test <span class="op">=</span> train_test_group_split(mouse, groupby<span class="op">=</span><span class="st">'ct'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="scanvi" class="level2" data-number="1">
+<h2 data-number="1" data-anchor-id="scanvi"><span class="header-section-number">1</span> 1. scANVI</h2>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_shap_feature(adata, shaps, clf_name: <span class="bu">str</span>):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx, ct <span class="kw">in</span> <span class="bu">enumerate</span>(adata.obs.ct.cat.categories):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        vals <span class="op">=</span> pd.DataFrame(shaps[idx], index<span class="op">=</span>adata.obs_names, columns<span class="op">=</span>adata.var_names)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        vals[<span class="st">'ct'</span>] <span class="op">=</span> adata.obs.ct.cat.codes.values</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        vals <span class="op">=</span> vals.query(<span class="st">'ct == @idx'</span>).iloc[:, :<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        weights <span class="op">=</span> vals<span class="op">\</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            .mean(axis<span class="op">=</span><span class="dv">0</span>)<span class="op">\</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            .sort_values(ascending<span class="op">=</span><span class="va">False</span>)<span class="op">\</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            .reset_index()<span class="op">\</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            .rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'feature'</span>,<span class="dv">0</span>:<span class="st">'weight'</span>})</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="co"># .query('weight &gt; 0.5')</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        weights[<span class="st">'ct'</span>] <span class="op">=</span> adata.obs.ct.cat.categories[idx]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        result.append(weights)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> pd.concat(result)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    result[<span class="st">'clf'</span>] <span class="op">=</span> clf_name</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.load(<span class="st">"../results/02_mouse_integration/scanvi_ns_15/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO     File ../results/02_mouse_integration/scanvi_ns_15/model.pt already downloaded                             </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> SCANVIDeep(lvae.module, background).shap_values(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 33%|███████████████████████████▋                                                       | 5/15 [04:18&lt;08:41, 52.10s/it]</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># shap.summary_plot(shap_values, test['X'], feature_names=FEATURES, class_names=CATEGORIES)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shap_scANVI <span class="op">=</span> get_shap_feature(mouse[test_idx], shap_values, <span class="st">'scANVI'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>shap_scANVI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="106">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">feature</th>
+<th data-quarto-table-cell-role="th">weight</th>
+<th data-quarto-table-cell-role="th">ct</th>
+<th data-quarto-table-cell-role="th">clf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>oosp1</td>
+<td>16.723852</td>
+<td>Zygote</td>
+<td>scANVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>e330021d16rik</td>
+<td>16.723083</td>
+<td>Zygote</td>
+<td>scANVI</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>btg4</td>
+<td>15.874923</td>
+<td>Zygote</td>
+<td>scANVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>zbed3</td>
+<td>15.021937</td>
+<td>Zygote</td>
+<td>scANVI</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>e330034g19rik</td>
+<td>14.736804</td>
+<td>Zygote</td>
+<td>scANVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2995</td>
+<td>cst3</td>
+<td>-0.025896</td>
+<td>E4.5-PrE</td>
+<td>scANVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2996</td>
+<td>gpx2</td>
+<td>-0.030260</td>
+<td>E4.5-PrE</td>
+<td>scANVI</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2997</td>
+<td>glipr1</td>
+<td>-0.044704</td>
+<td>E4.5-PrE</td>
+<td>scANVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2998</td>
+<td>cyp4f14</td>
+<td>-0.047850</td>
+<td>E4.5-PrE</td>
+<td>scANVI</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2999</td>
+<td>s100g</td>
+<td>-0.064436</td>
+<td>E4.5-PrE</td>
+<td>scANVI</td>
+</tr>
+</tbody>
+</table>
+
+<p>45000 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="xgboost" class="level2" data-number="2">
+<h2 data-number="2" data-anchor-id="xgboost"><span class="header-section-number">2</span> 2. XGBoost</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_shap_features_from_explainer(adata, shaps, clf_name: <span class="bu">str</span>):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx, ct <span class="kw">in</span> <span class="bu">enumerate</span>(adata.obs.ct.cat.categories):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        vals <span class="op">=</span> pd.DataFrame(shaps[:, :, idx].values, index<span class="op">=</span>adata.obs_names, columns<span class="op">=</span>adata.var_names)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        vals[<span class="st">'ct'</span>] <span class="op">=</span> adata.obs.ct.cat.codes.values</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        vals <span class="op">=</span> vals.query(<span class="st">'ct == @idx'</span>).iloc[:, :<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        weights <span class="op">=</span> vals<span class="op">\</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>            .mean(axis<span class="op">=</span><span class="dv">0</span>)<span class="op">\</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            .sort_values(ascending<span class="op">=</span><span class="va">False</span>)<span class="op">\</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            .reset_index()<span class="op">\</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            .rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'feature'</span>,<span class="dv">0</span>:<span class="st">'weight'</span>})</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>            <span class="co"># .query('weight &gt; 0.5')</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        weights[<span class="st">'ct'</span>] <span class="op">=</span> adata.obs.ct.cat.categories[idx]</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        result.append(weights)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> pd.concat(result)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    result[<span class="st">'clf'</span>] <span class="op">=</span> clf_name</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="scvi" class="level3" data-number="2.1">
+<h3 data-number="2.1" data-anchor-id="scvi"><span class="header-section-number">2.1</span> 2.1. scVI</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>vae <span class="op">=</span> scvi.model.SCVI.load(<span class="st">"../results/02_mouse_integration/scvi"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>xg_clf <span class="op">=</span> xgb.XGBClassifier()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>xg_clf.load_model(<span class="st">"../results/05_scVI_xgboost.json"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> shap.GPUTreeExplainer(xg_clf)(vae.get_normalized_expression(return_mean<span class="op">=</span><span class="va">True</span>).values, check_additivity<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>shap_xg_scVI <span class="op">=</span> get_shap_features_from_explainer(mouse, shap_values, <span class="st">'xg_scVI'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scanvi-1" class="level3" data-number="2.2">
+<h3 data-number="2.2" data-anchor-id="scanvi-1"><span class="header-section-number">2.2</span> 2.2. scANVI</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.load(<span class="st">"../results/02_mouse_integration/scanvi/"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>xg_clf <span class="op">=</span> xgb.XGBClassifier()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>xg_clf.load_model(<span class="st">"../results/05_scANVI_xgboost.json"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> shap.GPUTreeExplainer(xg_clf)(lvae.get_normalized_expression(return_mean<span class="op">=</span><span class="va">True</span>).values, check_additivity<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>shap_xg_scANVI <span class="op">=</span> get_shap_features_from_explainer(mouse, shap_values, <span class="st">'xg_scANVI'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scgen" class="level3" data-number="2.3">
+<h3 data-number="2.3" data-anchor-id="scgen"><span class="header-section-number">2.3</span> 2.3. scGEN</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mscgen <span class="op">=</span> scgen.SCGEN.load(<span class="st">"../results/02_mouse_integration/scgen/"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>xg_clf <span class="op">=</span> xgb.XGBClassifier()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>xg_clf.load_model(<span class="st">"../results/05_scGEN_xgboost.json"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> shap.GPUTreeExplainer(xg_clf)(mscgen.get_decoded_expression(), check_additivity<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>shap_xg_scGEN <span class="op">=</span> get_shap_features_from_explainer(mouse, shap_values, <span class="st">'xg_scGEN'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># xg_clfs = pd.concat([shap_scANVI, shap_xg_scVI, shap_xg_scANVI, shap_xg_scGEN], ignore_index=True)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># xg_clfs.to_feather("../results/09_clf.feather")</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># xg_clfs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>xg_clfs <span class="op">=</span> pd.read_feather(<span class="st">"../results/09_clf.feather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> xg_clfs.query(<span class="st">'weight &gt; 0'</span>).groupby(<span class="st">'clf'</span>)[<span class="st">'feature'</span>].<span class="bu">apply</span>(<span class="bu">set</span>).to_dict()</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>neg <span class="op">=</span> xg_clfs.query(<span class="st">'weight &lt; 0'</span>).groupby(<span class="st">'clf'</span>)[<span class="st">'feature'</span>].<span class="bu">apply</span>(<span class="bu">set</span>).to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Positive weights'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plot(from_contents(pos), fig<span class="op">=</span>fig, element_size<span class="op">=</span><span class="va">None</span>, show_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Negative weights'</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plot(from_contents(neg), fig<span class="op">=</span>fig, element_size<span class="op">=</span><span class="va">None</span>, show_counts<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="comparisons" class="level2" data-number="3">
+<h2 data-number="3" data-anchor-id="comparisons"><span class="header-section-number">3</span> Comparisons</h2>
+<div class="cell" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_clf_scanvi(clf, adata, clf_name: <span class="bu">str</span>, n: <span class="bu">int</span><span class="op">=</span><span class="dv">10</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> []</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(<span class="bu">range</span>(n)):</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        background_idx, background, test_idx, test <span class="op">=</span> train_test_group_split(adata, groupby<span class="op">=</span><span class="st">'ct'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        shap_values <span class="op">=</span> SCANVIDeep(clf.module, background).shap_values(test)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        weights <span class="op">=</span> get_shap_feature(mouse[test_idx], shap_values, <span class="st">'scANVI'</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        weights[<span class="st">'iteration'</span>] <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        results.append(weights)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> pd.concat(results)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> pd.DataFrame(res.query(<span class="st">'weight &gt; 0'</span>).groupby([<span class="st">'ct'</span>, <span class="st">'feature'</span>]).weight.mean())</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    res_means[<span class="st">'n'</span>] <span class="op">=</span> res.query(<span class="st">'weight &gt; 0'</span>).groupby([<span class="st">'ct'</span>, <span class="st">'feature'</span>]).count().loc[res_means.index, <span class="st">'iteration'</span>]</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> res_means.query(<span class="st">'n == @n'</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    res_th <span class="op">=</span> res.query(<span class="st">'weight &gt; 0'</span>).groupby([<span class="st">'clf'</span>, <span class="st">'ct'</span>]).weight.quantile(<span class="fl">0.9</span>).unstack().T</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> pd.merge(res_means.reset_index(), res_th, left_on<span class="op">=</span><span class="st">'ct'</span>, right_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> res_means[res_means[<span class="st">'weight'</span>] <span class="op">&gt;=</span> res_means[clf_name]]</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_clf(clf, adata, sampler, clf_name: <span class="bu">str</span>, n: <span class="bu">int</span><span class="op">=</span><span class="dv">10</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co">    This function runs GPUTreeExplainer on XGBoost classifiers to extract SHAP values.</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="co">    For each class, we take features which have &gt;0 contribution (weight) for the prediction.</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="co">    To make sure each feature is consistent, it has to occur n-times during bootstrap.</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="co">    From the remaining features which comply with the above filter, we calculate 90% quantile</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="co">    and keep only those features as the core predictors of a class.</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="co">    clf:</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="co">        XGBoost classifier</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="co">    adata:</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="co">        Dataset h5ad</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="co">    sampler:</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="co">        Decoder for estimating denoised expression</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a><span class="co">    clf_name:</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a><span class="co">        Name of the classifier (which latent space)</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="co">    n: </span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of bootstraps</span></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> []</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(<span class="bu">range</span>(n)):</span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(sampler) <span class="kw">is</span> scgen._scgen.SCGEN:</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>            X <span class="op">=</span> sampler.get_decoded_expression()</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>            X <span class="op">=</span> sampler.get_normalized_expression(return_mean<span class="op">=</span><span class="va">True</span>).values</span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>        shap_values <span class="op">=</span> shap.GPUTreeExplainer(clf)(X, check_additivity<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>        weights <span class="op">=</span> get_shap_features_from_explainer(adata, shap_values, clf_name)</span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>        weights[<span class="st">'iteration'</span>] <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>        results.append(weights)</span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> pd.concat(results)</span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> pd.DataFrame(res.query(<span class="st">'weight &gt; 0'</span>).groupby([<span class="st">'ct'</span>, <span class="st">'feature'</span>]).weight.mean())</span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>    res_means[<span class="st">'n'</span>] <span class="op">=</span> res.query(<span class="st">'weight &gt; 0'</span>).groupby([<span class="st">'ct'</span>, <span class="st">'feature'</span>]).count().loc[res_means.index, <span class="st">'iteration'</span>]</span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> res_means.query(<span class="st">'n == @n'</span>)</span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>    res_th <span class="op">=</span> res.query(<span class="st">'weight &gt; 0'</span>).groupby([<span class="st">'clf'</span>, <span class="st">'ct'</span>]).weight.quantile(<span class="fl">0.9</span>).unstack().T</span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> pd.merge(res_means.reset_index(), res_th, left_on<span class="op">=</span><span class="st">'ct'</span>, right_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>    res_means <span class="op">=</span> res_means[res_means[<span class="st">'weight'</span>] <span class="op">&gt;=</span> res_means[clf_name]]</span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="xgboost-upset-plots" class="level3" data-number="3.1">
+<h3 data-number="3.1" data-anchor-id="xgboost-upset-plots"><span class="header-section-number">3.1</span> 3.1. XGBoost UpSet plots</h3>
+<p>Important features from XGBoost are almost unique for each classifier.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>vae <span class="op">=</span> scvi.model.SCVI.load(<span class="st">"../results/02_mouse_integration/scvi"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>xg_clf <span class="op">=</span> xgb.XGBClassifier()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>xg_clf.load_model(<span class="st">"../results/05_scVI_xgboost.json"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>xg_scVI <span class="op">=</span> run_clf(xg_clf, mouse, vae, <span class="st">'xg_scVI'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>lvae <span class="op">=</span> scvi.model.SCANVI.load(<span class="st">"../results/02_mouse_integration/scanvi"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>xg_clf <span class="op">=</span> xgb.XGBClassifier()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>xg_clf.load_model(<span class="st">"../results/05_scANVI_xgboost.json"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>xg_scANVI <span class="op">=</span> run_clf(xg_clf, mouse, lvae, <span class="st">'xg_scANVI'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mscgen <span class="op">=</span> scgen.SCGEN.load(<span class="st">"../results/02_mouse_integration/scgen/"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>xg_clf <span class="op">=</span> xgb.XGBClassifier()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>xg_clf.load_model(<span class="st">"../results/05_scGEN_xgboost.json"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>xg_scGEN <span class="op">=</span> run_clf(xg_clf, mouse, mscgen, <span class="st">'xg_scGEN'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pd.concat([xg_scVI, xg_scANVI, xg_scGEN], ignore_index<span class="op">=</span><span class="va">True</span>).to_feather(<span class="st">"../results/09_xg_shap_features_n_10.feather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="161">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>xg_shaps <span class="op">=</span> pd.read_feather(<span class="st">"../results/09_xg_shap_features_n_10.feather"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>xg_shaps[<span class="st">'clf'</span>] <span class="op">=</span> xg_shaps.fillna(<span class="dv">0</span>)[[<span class="st">'xg_scVI'</span>, <span class="st">'xg_scANVI'</span>, <span class="st">'xg_scGEN'</span>]].idxmax(axis<span class="op">=</span><span class="dv">1</span>, skipna<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>xg_shaps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="161">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ct</th>
+<th data-quarto-table-cell-role="th">feature</th>
+<th data-quarto-table-cell-role="th">weight</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">xg_scVI</th>
+<th data-quarto-table-cell-role="th">xg_scANVI</th>
+<th data-quarto-table-cell-role="th">xg_scGEN</th>
+<th data-quarto-table-cell-role="th">clf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>16C</td>
+<td>arid5b</td>
+<td>0.574749</td>
+<td>10</td>
+<td>0.087677</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>xg_scVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>16C</td>
+<td>bcat1</td>
+<td>0.993409</td>
+<td>10</td>
+<td>0.087677</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>xg_scVI</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>16C</td>
+<td>bmyc</td>
+<td>0.097852</td>
+<td>10</td>
+<td>0.087677</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>xg_scVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>16C</td>
+<td>gm26542</td>
+<td>0.123040</td>
+<td>10</td>
+<td>0.087677</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>xg_scVI</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>16C</td>
+<td>gm45564</td>
+<td>0.117891</td>
+<td>10</td>
+<td>0.087677</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>xg_scVI</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">223</td>
+<td>E4.5-PrE</td>
+<td>sox7</td>
+<td>2.043959</td>
+<td>10</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.695141</td>
+<td>xg_scGEN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">224</td>
+<td>E4.5-TE</td>
+<td>ddias</td>
+<td>1.565134</td>
+<td>10</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.752304</td>
+<td>xg_scGEN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">225</td>
+<td>E4.5-TE</td>
+<td>rnd3</td>
+<td>0.752304</td>
+<td>10</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.752304</td>
+<td>xg_scGEN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">226</td>
+<td>Zygote</td>
+<td>gm15913</td>
+<td>2.330400</td>
+<td>10</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.279902</td>
+<td>xg_scGEN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">227</td>
+<td>Zygote</td>
+<td>gm23020</td>
+<td>1.279902</td>
+<td>10</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.279902</td>
+<td>xg_scGEN</td>
+</tr>
+</tbody>
+</table>
+
+<p>228 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">5</span>, <span class="dv">3</span>, figsize<span class="op">=</span>[<span class="dv">20</span>, <span class="dv">20</span>])</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, ct <span class="kw">in</span> <span class="bu">enumerate</span>(mouse.obs.ct.cat.categories):</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> xg_shaps.query(<span class="st">'ct == @ct'</span>).groupby(<span class="st">'clf'</span>)[<span class="st">'feature'</span>].<span class="bu">apply</span>(<span class="bu">set</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    venn3(data.values, set_labels<span class="op">=</span>data.keys(), ax<span class="op">=</span>ax[idx <span class="op">//</span> <span class="dv">3</span>, idx <span class="op">%</span> <span class="dv">3</span>])</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    ax[idx <span class="op">//</span> <span class="dv">3</span>, idx <span class="op">%</span> <span class="dv">3</span>].set_title(ct)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-26-output-1.png"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ct <span class="kw">in</span> mouse.obs.ct.cat.categories:</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    fig.suptitle(ct)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> xg_shaps.query(<span class="st">'ct == @ct'</span>).groupby(<span class="st">'clf'</span>)[<span class="st">'feature'</span>].<span class="bu">apply</span>(<span class="bu">set</span>).to_dict()</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># display(data)</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> plot(from_contents(data), fig<span class="op">=</span>fig, element_size<span class="op">=</span><span class="va">None</span>, show_counts<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-1.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-2.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-3.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-4.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-5.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-6.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-7.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-8.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-9.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-10.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-11.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-12.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-13.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-14.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-27-output-15.png"></p>
+</div>
+</div>
+</section>
+<section id="scanvi-2" class="level3" data-number="3.2">
+<h3 data-number="3.2" data-anchor-id="scanvi-2"><span class="header-section-number">3.2</span> 3.2. scANVI</h3>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:true}" data-tags="[]">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>shap_scANVI <span class="op">=</span> run_clf_scanvi(lvae, mouse, <span class="st">'scANVI'</span>, n<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>shap_scANVI.to_feather(<span class="st">"../results/09_scanvi_shap_features_n_10.feather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"c3b51d7099d64fc284c5b7c984a20a63","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+  0%|                                                                                           | 0/15 [00:00&lt;?, ?it/s]
+  7%|█████▌                                                                             | 1/15 [00:46&lt;10:49, 46.41s/it]
+ 13%|███████████                                                                        | 2/15 [01:31&lt;09:56, 45.85s/it]
+ 20%|████████████████▌                                                                  | 3/15 [02:17&lt;09:07, 45.63s/it]
+ 27%|██████████████████████▏                                                            | 4/15 [03:03&lt;08:24, 45.84s/it]
+ 33%|███████████████████████████▋                                                       | 5/15 [03:47&lt;07:32, 45.27s/it]
+ 40%|█████████████████████████████████▏                                                 | 6/15 [04:31&lt;06:43, 44.85s/it]
+ 47%|██████████████████████████████████████▋                                            | 7/15 [05:15&lt;05:56, 44.62s/it]
+ 53%|████████████████████████████████████████████▎                                      | 8/15 [05:59&lt;05:11, 44.43s/it]
+ 60%|█████████████████████████████████████████████████▊                                 | 9/15 [06:44&lt;04:26, 44.38s/it]
+ 67%|██████████████████████████████████████████████████████▋                           | 10/15 [07:28&lt;03:41, 44.29s/it]
+ 73%|████████████████████████████████████████████████████████████▏                     | 11/15 [08:13&lt;02:58, 44.54s/it]
+ 80%|█████████████████████████████████████████████████████████████████▌                | 12/15 [08:57&lt;02:13, 44.43s/it]
+ 87%|███████████████████████████████████████████████████████████████████████           | 13/15 [09:41&lt;01:28, 44.38s/it]
+ 93%|████████████████████████████████████████████████████████████████████████████▌     | 14/15 [10:26&lt;00:44, 44.43s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████| 15/15 [11:10&lt;00:00, 44.73s/it]
+
+  0%|                                                                                           | 0/15 [00:00&lt;?, ?it/s]
+  7%|█████▌                                                                             | 1/15 [00:45&lt;10:37, 45.52s/it]
+ 13%|███████████                                                                        | 2/15 [01:31&lt;09:52, 45.54s/it]
+ 20%|████████████████▌                                                                  | 3/15 [02:16&lt;09:06, 45.58s/it]
+ 27%|██████████████████████▏                                                            | 4/15 [03:01&lt;08:16, 45.13s/it]
+ 33%|███████████████████████████▋                                                       | 5/15 [03:45&lt;07:27, 44.79s/it]
+ 40%|█████████████████████████████████▏                                                 | 6/15 [04:30&lt;06:44, 44.91s/it]
+ 47%|██████████████████████████████████████▋                                            | 7/15 [05:14&lt;05:57, 44.72s/it]
+ 53%|████████████████████████████████████████████▎                                      | 8/15 [05:59&lt;05:13, 44.72s/it]
+ 60%|█████████████████████████████████████████████████▊                                 | 9/15 [06:44&lt;04:28, 44.67s/it]
+ 67%|██████████████████████████████████████████████████████▋                           | 10/15 [07:29&lt;03:44, 44.83s/it]
+ 73%|████████████████████████████████████████████████████████████▏                     | 11/15 [08:13&lt;02:59, 44.78s/it]
+ 80%|█████████████████████████████████████████████████████████████████▌                | 12/15 [08:58&lt;02:13, 44.66s/it]
+ 87%|███████████████████████████████████████████████████████████████████████           | 13/15 [09:42&lt;01:29, 44.57s/it]
+ 93%|████████████████████████████████████████████████████████████████████████████▌     | 14/15 [10:27&lt;00:44, 44.53s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████| 15/15 [11:11&lt;00:00, 44.76s/it]
+
+  0%|                                                                                           | 0/15 [00:00&lt;?, ?it/s]
+  7%|█████▌                                                                             | 1/15 [00:43&lt;10:10, 43.59s/it]
+ 13%|███████████                                                                        | 2/15 [01:27&lt;09:32, 44.03s/it]
+ 20%|████████████████▌                                                                  | 3/15 [02:11&lt;08:44, 43.68s/it]
+ 27%|██████████████████████▏                                                            | 4/15 [02:56&lt;08:07, 44.32s/it]
+ 33%|███████████████████████████▋                                                       | 5/15 [03:50&lt;07:57, 47.74s/it]
+ 40%|█████████████████████████████████▏                                                 | 6/15 [04:45&lt;07:33, 50.44s/it]
+ 47%|██████████████████████████████████████▋                                            | 7/15 [05:39&lt;06:50, 51.29s/it]
+ 53%|████████████████████████████████████████████▎                                      | 8/15 [06:24&lt;05:45, 49.29s/it]
+ 60%|█████████████████████████████████████████████████▊                                 | 9/15 [07:09&lt;04:49, 48.20s/it]
+ 67%|██████████████████████████████████████████████████████▋                           | 10/15 [07:54&lt;03:56, 47.23s/it]
+ 73%|████████████████████████████████████████████████████████████▏                     | 11/15 [08:39&lt;03:06, 46.54s/it]
+ 80%|█████████████████████████████████████████████████████████████████▌                | 12/15 [09:24&lt;02:18, 46.06s/it]
+ 87%|███████████████████████████████████████████████████████████████████████           | 13/15 [10:09&lt;01:31, 45.73s/it]
+ 93%|████████████████████████████████████████████████████████████████████████████▌     | 14/15 [10:54&lt;00:45, 45.51s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████| 15/15 [11:39&lt;00:00, 46.64s/it]
+
+  0%|                                                                                           | 0/15 [00:00&lt;?, ?it/s]
+  7%|█████▌                                                                             | 1/15 [00:45&lt;10:40, 45.73s/it]
+ 13%|███████████                                                                        | 2/15 [01:33&lt;10:07, 46.71s/it]
+ 20%|████████████████▌                                                                  | 3/15 [02:27&lt;10:04, 50.41s/it]
+ 27%|██████████████████████▏                                                            | 4/15 [03:21&lt;09:26, 51.50s/it]
+ 33%|███████████████████████████▋                                                       | 5/15 [04:22&lt;09:09, 54.99s/it]
+ 40%|█████████████████████████████████▏                                                 | 6/15 [05:13&lt;08:04, 53.79s/it]
+ 47%|██████████████████████████████████████▋                                            | 7/15 [05:59&lt;06:49, 51.24s/it]
+ 53%|████████████████████████████████████████████▎                                      | 8/15 [06:47&lt;05:51, 50.16s/it]
+ 60%|█████████████████████████████████████████████████▊                                 | 9/15 [07:35&lt;04:56, 49.40s/it]
+ 67%|██████████████████████████████████████████████████████▋                           | 10/15 [08:22&lt;04:04, 48.80s/it]
+ 73%|████████████████████████████████████████████████████████████▏                     | 11/15 [09:16&lt;03:21, 50.45s/it]
+ 80%|█████████████████████████████████████████████████████████████████▌                | 12/15 [10:02&lt;02:26, 48.86s/it]
+ 87%|███████████████████████████████████████████████████████████████████████           | 13/15 [10:47&lt;01:35, 47.72s/it]
+ 93%|████████████████████████████████████████████████████████████████████████████▌     | 14/15 [11:32&lt;00:46, 46.96s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████| 15/15 [12:18&lt;00:00, 49.24s/it]
+
+  0%|                                                                                           | 0/15 [00:00&lt;?, ?it/s]
+  7%|█████▌                                                                             | 1/15 [00:43&lt;10:15, 43.99s/it]
+ 13%|███████████                                                                        | 2/15 [01:27&lt;09:24, 43.42s/it]
+ 20%|████████████████▌                                                                  | 3/15 [02:09&lt;08:38, 43.20s/it]
+ 27%|██████████████████████▏                                                            | 4/15 [02:55&lt;08:03, 43.94s/it]
+ 33%|███████████████████████████▋                                                       | 5/15 [03:45&lt;07:42, 46.28s/it]
+ 40%|█████████████████████████████████▏                                                 | 6/15 [04:37&lt;07:12, 48.09s/it]
+ 47%|██████████████████████████████████████▋                                            | 7/15 [05:32&lt;06:43, 50.41s/it]
+ 53%|████████████████████████████████████████████▎                                      | 8/15 [06:27&lt;06:03, 51.96s/it]
+ 60%|█████████████████████████████████████████████████▊                                 | 9/15 [07:21&lt;05:16, 52.72s/it]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>shap_scANVI <span class="op">=</span> pd.read_feather(<span class="st">"../results/09_scanvi_shap_features_n_10.feather"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>shap_scANVI[<span class="st">'clf'</span>] <span class="op">=</span> <span class="st">'scANVI'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>shap_scANVI_with_xg <span class="op">=</span> pd.concat([shap_scANVI, xg_shaps])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="168">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ct <span class="kw">in</span> mouse.obs.ct.cat.categories:</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    fig.suptitle(ct)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> shap_scANVI_with_xg.query(<span class="st">'ct == @ct'</span>).groupby(<span class="st">'clf'</span>)[<span class="st">'feature'</span>].<span class="bu">apply</span>(<span class="bu">set</span>).to_dict()</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># display(data)</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> plot(from_contents(data), fig<span class="op">=</span>fig, element_size<span class="op">=</span><span class="va">None</span>, show_counts<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-1.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-2.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-3.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-4.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-5.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-6.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-7.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-8.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-9.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-10.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-11.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-12.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-13.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-14.png"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_classification_explanation_files/figure-html/cell-31-output-15.png"></p>
+</div>
+</div>
+</section>
+<section id="x.-xgboost-plotting-trees" class="level3" data-number="3.3">
+<h3 data-number="3.3" data-anchor-id="x.-xgboost-plotting-trees"><span class="header-section-number">3.3</span> 3.x. XGBoost plotting trees</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>xg_clf.best_ntree_limit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>xg_clf.best_iteration</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>xgb.plot_importance(xg_clf, max_num_features<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>xg_clf.get_booster().feature_names <span class="op">=</span> mouse.var_names.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">30</span>))</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>xgb.plot_tree(xg_clf, num_trees<span class="op">=</span>xg_clf.best_ntree_limit, ax<span class="op">=</span>ax)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
