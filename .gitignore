@@ -8,5 +8,8 @@ notebooks/.pybiomart.sqlite
 notebooks/test.ipynb
 pipeline/737K-august-2016.txt.gz
 results/
+reports/
 scripts/*.bak.py
 scripts/third-party
+
+/.quarto/

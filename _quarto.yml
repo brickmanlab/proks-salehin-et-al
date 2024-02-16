@@ -3,7 +3,7 @@ project:
   output-dir: reports
   render:
     - README.md
-    - notebooks/*
+    - notebooks/*.ipynb
 
 format:
   html:
@@ -11,6 +11,10 @@ format:
     toc: true
     minimal: true
     code-copy: true
+    grid: 
+      body-width: 2000px
+      sidebar-width: 200px
+      margin-width: 200px
 
 number-sections: true
 
@@ -22,7 +26,7 @@ website:
     contents: 
       - README.md
       - section: Reports
-        contents: notebooks/*
+        contents: notebooks/*.ipynb
     tools:
       - icon: twitter
         href: https://twitter.com/LabBrickman

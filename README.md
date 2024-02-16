@@ -1,18 +1,14 @@
 ---
-title: proks-salehin-et-al-2023
-date: "20230623"
-author: Martin Proks
+title: proks-salehin-et-al
+date: "16-02-2024"
+author: Martin Proks, Nazmus Salehin
 ---
 
-Pre-implanation AI models
+Deep Learning Based Models for Preimplantation Mouse and Human Development
 
-## Checklist before submitting
-
-- [ ] Were the data uploaded to the GEO?
-- [ ] Were the processed data uploaded to Zenodo? Paste DOI here
-- [ ] Did you create `.gitignore` file?
-- [ ] Did you create `gh-pages` for deployment?
-- [ ] Push the code and run `quarto publish gh-pages`
+- Datasets: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10669600.svg)](https://doi.org/10.5281/zenodo.10669600)
+- Portal: [https://brickman-preimplantation.streamlit.app](https://brickman-preimplantation.streamlit.app) 
+- Portal codebase: [https://github.com/brickmanlab/preimplantation-portal](https://github.com/brickmanlab/preimplantation-portal)
 
 ## Installation
 
@@ -28,13 +24,6 @@ as the pip `jaxlib` and `nvidia-cudnn-cu11`.
 ## Running
 
 ```bash
-module load miniconda/latest cuda/11.8 cudnn/8.6.0
-source activate brickman
-
+module load cuda/11.8-dangpu cudnn/8.6.0-dangpu miniconda/latest && source activate brickman
 jupyter-lab --no-browser
 ```
-
-## Validation datasets
-
-- Mouse
-  - [GSE134240](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE134240)
