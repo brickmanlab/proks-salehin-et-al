@@ -10,6 +10,7 @@ Deep Learning Based Models for Preimplantation Mouse and Human Development
 - Trained models: [https://huggingface.co/brickmanlab](https://huggingface.co/brickmanlab)
 - Portal: [https://brickman-preimplantation.streamlit.app](https://brickman-preimplantation.streamlit.app) 
 - Portal codebase: [https://github.com/brickmanlab/preimplantation-portal](https://github.com/brickmanlab/preimplantation-portal)
+- bioRxiv paper: [https://www.biorxiv.org/content/10.1101/2024.02.16.580649v1](https://www.biorxiv.org/content/10.1101/2024.02.16.580649v1)
 
 ## Installation
 
