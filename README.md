@@ -6,6 +6,7 @@ author: Martin Proks, Nazmus Salehin
 
 Deep Learning Based Models for Preimplantation Mouse and Human Development
 
+- Tutorial: [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/brickmanlab/proks-salehin-et-al/blob/master/docs/00_tutorial.ipynb)
 - Datasets: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10669600.svg)](https://doi.org/10.5281/zenodo.10669600)
 - Trained models: [https://huggingface.co/brickmanlab](https://huggingface.co/brickmanlab)
 - Portal: [https://brickman-preimplantation.streamlit.app](https://brickman-preimplantation.streamlit.app) 
