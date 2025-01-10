@@ -1,0 +1,22 @@
+---
+title: "13 reviewer comments (R)"
+author: Martin Proks
+date: 01-05-2024
+---
+
+We use nEnd dataset for testing the classifier
+
+```{r}
+library(Seurat)
+library(SeuratDisk)
+```
+
+```{r}
+adata <- readRDS("../data/external/linneberg_et_al_2024/Madie_nEnd_cellPaper_normalised.rds")
+```
+
+```{r}
+SaveH5Seurat(adata, filename = "../data/external/linneberg_et_al_2024/Madie_nEnd_cellPaper_normalised.h5Seurat")
+Convert("../data/external/linneberg_et_al_2024/Madie_nEnd_cellPaper_normalised.h5Seurat", dest = "h5ad")
+```
+
