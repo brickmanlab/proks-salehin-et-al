@@ -240,7 +240,6 @@ def plt_pseudotime(
 def plt_trend(
     adata: sc.AnnData,
     genes: List[str],
-    groupby: str,
     layer: str = "latent_normalized",
     key="dpt_pseudotime",
 ):
@@ -299,7 +298,7 @@ def compute_scib_metrics(adata, emb_key, label_key, batch_key, model_name):
 ###################################################################################################
 ## Classification helpers
 import xgboost as xgb
-from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
+from sklearn.model_selection import train_test_split
 
 
 def train_xgboost(
@@ -454,3 +453,36 @@ def feature_plot(df: pd.DataFrame, shap_values: np.ndarray, classes: pd.Index):
         ax[idx // 2, idx % 2].set_title(
             f"Mean(|SHAP value|) average importance for: {ct}"
         )
+
+###################################################################################################
+## PPC helper
+
+from scipy.stats import pearsonr, spearmanr
+from sklearn.metrics import mean_absolute_error as mae
+from sklearn.metrics import r2_score
+
+# Adapted from https://github.com/YosefLab/scvi-criticism/blob/main/src/scvi_criticism/_ppc_plot.py
+def plot_cv(result, model_name: str, metric: str, ax=None):
+
+    model_metric = result.metrics[metric][model_name].values
+    raw_metric = result.metrics[metric]["Raw"].values
+    title = (
+        f"model={model_name} | metric={metric} | n={result.raw_counts.shape[0]}\n"
+        f"Mean Absolute Error={mae(model_metric, raw_metric):.2f},\n"
+        f"Pearson correlation={pearsonr(model_metric, raw_metric)[0]:.2f}\n"
+        f"Spearman correlation={spearmanr(model_metric, raw_metric)[0]:.2f}\n"
+        f"r^2={r2_score(raw_metric, model_metric):.2f}\n"
+    )
+
+    if ax is None:
+        ax = plt.scatter(model_metric, raw_metric, ax=ax)
+    else:
+        ax.scatter(model_metric, raw_metric)
+    
+    # add line of best fit
+    a, b = np.polyfit(model_metric, raw_metric, 1)
+    ax.plot(model_metric, a * model_metric + b, color="red", ls="--", alpha=0.8, label="line of best fit")
+    ax.legend()
+    ax.set_xlabel("model")
+    ax.set_ylabel("raw")
+    ax.set_title(title)
